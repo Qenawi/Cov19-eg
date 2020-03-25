@@ -27,5 +27,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libraries.Libs.kotlin)
     implementation(Libraries.Libs.appcompat)
+    implementation(Libraries.constraintlayout)
 }
 
