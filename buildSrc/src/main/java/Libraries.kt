@@ -178,6 +178,12 @@ object Libraries {
         const val library = "com.github.MatrixDev.Roomigrant:RoomigrantLib:$version"
         const val compiler = "com.github.MatrixDev.Roomigrant:RoomigrantCompiler:$version"
     }
+    object Glide
+    {
+     private  const val version ="4.11.0"
+        const val library="com.github.bumptech.glide:glide:$version"
+        const val compiler="com.github.bumptech.glide:compiler:$version"
+    }
 
 
 }

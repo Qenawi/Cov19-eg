@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mapKey" translatable="false">AIzaSyBfanKpNW1IUugDILknGRO0KO14YFm65UM</string>
+    <string name="AppPrefs_MainKey" translatable="false">C19Key</string>
+</resources>
