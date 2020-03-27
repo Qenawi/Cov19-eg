@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cov19-eg</string>
+    <string name="name">الاسم</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="register">تسجيل</string>
+    <string name="invalid_phone_number">من فضلك ادخل رقم الهاتف صحيح</string>
+    <string name="invalid_name">من فضلك ادخل الاسم</string>
+    <string name="invalid_province">من فضلك اختر اسم المحافظة</string>
+    <string name="please_wait">please wait</string>
 </resources>

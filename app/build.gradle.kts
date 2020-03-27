@@ -3,9 +3,11 @@ import org.gradle.kotlin.dsl.*
 
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+
 }
 
 android {
@@ -28,5 +30,8 @@ dependencies {
     implementation(Libraries.Libs.kotlin)
     implementation(Libraries.Libs.appcompat)
     implementation(Libraries.constraintlayout)
+    implementation(Libraries.Google.material)
+    implementation(Libraries.Google.firebaseStore)
 }
+
 
