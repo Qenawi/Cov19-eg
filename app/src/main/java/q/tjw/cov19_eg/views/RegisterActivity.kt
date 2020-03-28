@@ -1,4 +1,4 @@
-package q.tjw.cov19_eg
+package q.tjw.cov19_eg.views
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
+import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.ActivityRegisterBinding
 import q.tjw.cov19_eg.model.User
-import q.tjw.cov19_eg.utilities.App
 import q.tjw.cov19_eg.utilities.Validation
 
 
@@ -43,7 +43,8 @@ class RegisterActivity : AppCompatActivity() {
         dialog?.setMessage(resources?.getString(R.string.please_wait))
         db = FirebaseFirestore.getInstance()
         provinceAdapter = ArrayAdapter<String>(this,
-            R.layout.spinner_selected_item, R.id.item, province)
+            R.layout.spinner_selected_item,
+            R.id.item, province)
         binding.provinceSpinner.adapter = provinceAdapter
 
     }
@@ -51,12 +52,14 @@ class RegisterActivity : AppCompatActivity() {
     fun register(view: View) {
         var valid: String = Validation.registerValidation(
             binding.phone.text.toString(),
-            binding.name.text.toString(), binding.provinceSpinner.selectedItemPosition
+            binding.name.text.toString(),
+            binding.provinceSpinner.selectedItemPosition,
+            binding.age.text.toString()
         )
         if (valid == "valid") {
             dialog?.show()
             user = User(binding.name.text.toString(),
-                binding.phone.text.toString(), province[binding.provinceSpinner.selectedItemPosition])
+                binding.phone.text.toString(), province[binding.provinceSpinner.selectedItemPosition],  binding.age.text.toString())
 
             db.collection("users").document("7872163").set(user)
                 .addOnSuccessListener {

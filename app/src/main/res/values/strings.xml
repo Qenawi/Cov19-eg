@@ -2,9 +2,27 @@
     <string name="app_name">Cov19-eg</string>
     <string name="name">الاسم</string>
     <string name="phone">رقم الهاتف</string>
+    <string name="age">العمر</string>
     <string name="register">تسجيل</string>
     <string name="invalid_phone_number">من فضلك ادخل رقم الهاتف صحيح</string>
     <string name="invalid_name">من فضلك ادخل الاسم</string>
+    <string name="invalid_age">من فضلك ادخل عمرك</string>
     <string name="invalid_province">من فضلك اختر اسم المحافظة</string>
     <string name="please_wait">please wait</string>
+    <string name="check1">إرتفاع درجة الحرارة أكثر من 38 درجة مئوية</string>
+    <string name="check2">سعال شديد أو متزايد</string>
+    <string name="check3">احتقان شديد في الحلق</string>
+    <string name="check4">قئ أو إسهال</string>
+    <string name="check5">مرض مزمن: سكر - ضغط - قلب &#8230;</string>
+    <string name="check6">مخالطة لحالة إلتهاب تنفسي حاد</string>
+    <string name="check7">زيارة مكان صحي تثبت فيه حالة موجبة</string>
+    <string name="check8">أن تكون أحد العاملين بالقطاع الصحي أو العزل الصحي</string>
+    <string name="check9">سفر داخل أو خارج مصر: شرم الشيخ/أوروبا</string>
+    <string name="check">فحص</string>
+    <string name="ok">حسنا</string>
+    <string name="you_are_ok">انت بصحة جيدة &#8230; إلتزم البيت</string>
+    <string name="self_isolation">إلتزم بالبيت&#8230; عزل ذاتي</string>
+    <string name="call_doctor">إستشير الطبيب هاتفيا &#8230; إعزل نفسك في البيت</string>
+    <string name="call_hospital">من المحتمل اصابتك بالكورونا الرجاء الاتصال ب 105 لإتخاذ الاجراءات</string>
+    <string name="virus_check">فحص فيروس كورونا</string>
 </resources>

@@ -33,5 +33,3 @@ dependencies {
     implementation(Libraries.Google.material)
     implementation(Libraries.Google.firebaseStore)
 }
-
-

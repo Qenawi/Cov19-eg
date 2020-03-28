@@ -4,19 +4,22 @@ import q.tjw.cov19_eg.R
 
 object Validation {
 
-    fun registerValidation(mobile: String?, name: String?, province: Int): String {
-        when {
+    fun registerValidation(mobile: String?, name: String?, province: Int, age: String?): String {
+        return when {
             name == "" -> {
-                return App.context?.resources?.getString(R.string.invalid_name)!!
+                App.context?.resources?.getString(R.string.invalid_name)!!
             }
             mobileValidation(mobile) != "valid" -> {
-                return App.context?.resources?.getString(R.string.invalid_phone_number)!!
+                App.context?.resources?.getString(R.string.invalid_phone_number)!!
+            }
+            age == "" -> {
+                return App.context?.resources?.getString(R.string.invalid_name)!!
             }
             province == 0 -> {
-                return App.context?.resources?.getString(R.string.invalid_province)!!
+                App.context?.resources?.getString(R.string.invalid_province)!!
             }
             else -> {
-                return "valid"
+                "valid"
             }
         }
         return "valid"
