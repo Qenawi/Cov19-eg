@@ -1,14 +1,13 @@
-import org.gradle.internal.impldep.org.bouncycastle.asn1.iana.IANAObjectIdentifiers.experimental
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -53,5 +52,7 @@ dependencies {
     implementation(Libraries.FireBase.messeging)
     implementation(Libraries.carbon)
 
+    implementation(Libraries.Google.material)
+    implementation(Libraries.Libs.slidingRootNav)
 }
 
