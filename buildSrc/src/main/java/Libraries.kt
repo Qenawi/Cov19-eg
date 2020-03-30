@@ -22,6 +22,7 @@ object Libraries {
     object Libs {
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
         const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+        const val slidingRootNav = "com.yarolegovich:sliding-root-nav:1.1.0"
     }
 
     object Google {

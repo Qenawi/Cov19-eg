@@ -1,5 +1,6 @@
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.*
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
@@ -52,7 +53,6 @@ dependencies {
     implementation(Libraries.carbon)
 
     implementation(Libraries.Google.material)
-    implementation(Libraries.Google.firebaseStore)
     implementation(Libraries.Libs.slidingRootNav)
 }
 

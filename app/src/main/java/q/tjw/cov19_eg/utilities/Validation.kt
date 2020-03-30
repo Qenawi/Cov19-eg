@@ -1,22 +1,23 @@
 package q.tjw.cov19_eg.utilities
 
 import q.tjw.cov19_eg.R
+import q.tjw.cov19_eg.map.di.app.CO19Application
 
 object Validation {
 
     fun registerValidation(mobile: String?, name: String?, province: Int, age: String?): String {
         return when {
             name == "" -> {
-                App.context?.resources?.getString(R.string.invalid_name)!!
+                CO19Application.context?.resources?.getString(R.string.invalid_name)!!
             }
             mobileValidation(mobile) != "valid" -> {
-                App.context?.resources?.getString(R.string.invalid_phone_number)!!
+                CO19Application.context?.resources?.getString(R.string.invalid_phone_number)!!
             }
             age == "" -> {
-                return App.context?.resources?.getString(R.string.invalid_name)!!
+                return CO19Application.context?.resources?.getString(R.string.invalid_name)!!
             }
             province == 0 -> {
-                App.context?.resources?.getString(R.string.invalid_province)!!
+                CO19Application.context?.resources?.getString(R.string.invalid_province)!!
             }
             else -> {
                 "valid"
@@ -31,12 +32,12 @@ object Validation {
             if (!(mobile.length == 11 &&
                         mobile.substring(0, 2) == "01" &&
                         Regex( "[0-9]+").matches(mobile))) {
-                App.context?.resources?.getString(R.string.invalid_phone_number)
+                CO19Application.context?.resources?.getString(R.string.invalid_phone_number)
             } else {
                 "valid"
             }
         } else {
-            App.context?.resources
+            CO19Application.context?.resources
                 ?.getString(R.string.invalid_phone_number)
         }
     }
