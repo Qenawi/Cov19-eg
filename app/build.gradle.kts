@@ -32,4 +32,5 @@ dependencies {
     implementation(Libraries.constraintlayout)
     implementation(Libraries.Google.material)
     implementation(Libraries.Google.firebaseStore)
+    implementation(Libraries.Libs.slidingRootNav)
 }
