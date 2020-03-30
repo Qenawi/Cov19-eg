@@ -2,4 +2,19 @@
 <resources>
     <string name="mapKey" translatable="false">AIzaSyBfanKpNW1IUugDILknGRO0KO14YFm65UM</string>
     <string name="AppPrefs_MainKey" translatable="false">C19Key</string>
+    <string name="add_case">Add Case</string>
+    <string name="update_status">Update Status</string>
+    <string name="worldTotalCount">"Case Count "</string>
+    <string name="WorldWide">World State</string>
+    <string name="total_recovered">Recovered</string>
+    <string name="death">Death</string>
+    <string name="egypt_count">Egypt State</string>
+    <string name="case_address">Case Address</string>
+    <string name="case_name">Case Name</string>
+    <string name="send_report">"Add Case "</string>
+    <string name="add_case_use_policy">Pleas Don\'t Add Random Cases , We Do Our Best To Provide OutBreak Control
+    Mechanism To Help You And Others ,Thanks.
+    </string>
+    <string name="case_location">Case Location</string>
+    <string name="add_case_date">Case Date</string>
 </resources>

@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.MapKey
 import dagger.Module
 import dagger.multibindings.IntoMap
+import q.tjw.cov19_eg.map.ui.map_activity.MapViewModel
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -43,6 +44,10 @@ class ViewModelFactory
 abstract class ViewModelFactoryBindingModule {
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    @Binds
+    @IntoMap
+    @ViewModelKey(MapViewModel::class)
+    abstract fun bindMapModel(vm: MapViewModel): ViewModel
 
 
     //Todo Add more ViewModels here

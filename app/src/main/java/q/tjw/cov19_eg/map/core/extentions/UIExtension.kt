@@ -8,10 +8,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.databinding.BindingAdapter
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
@@ -75,3 +72,24 @@ fun Spinner.cPopulate(arrayListID: Int) {
     }
 }
 
+@BindingAdapter("lock_view")
+fun View.mLock(load: Boolean?)=load?.let { bool-> this.mEnable(!bool)}
+fun View.mEnable(boolean: Boolean?) =
+    when (boolean) {
+        true -> { this.isEnabled=true }
+        false -> { this.isEnabled=false
+        }
+        null -> {
+        }
+    }
+fun View.mVisible(boolean: Boolean?) {
+    boolean?.let {
+        if (boolean) this.visibility = View.VISIBLE
+        else this.visibility = View.INVISIBLE
+    }
+}
+
+@BindingAdapter("progress_view")
+fun View.mProgress(boolean: Boolean?){ mVisible(boolean)}
+@BindingAdapter("safe_text")
+fun TextView.mText(any: Any?)=any?.let { sText-> text=sText.toString() }

@@ -1,3 +1,5 @@
+import Libraries.Versions.playService
+
 object Libraries {
     object Apps {
         const val compileSdk = 29
@@ -11,9 +13,10 @@ object Libraries {
         const val gradle = "3.6.1"
         const val kotlin = "1.3.61"
         const val appcompat = "1.0.2"
+        const val playService = "4.3.3"
 
         /* test */
-        const val junit = "4.12"
+        const val junit = "5.12"
     }
 
     object Libs {
@@ -22,14 +25,22 @@ object Libraries {
     }
 
     object Google {
+        private const val playServiceVersion = "17.0.0"
         const val material = "com.google.android.material:material:1.1.0"
         const val firebaseCore = "com.google.firebase:firebase-core:17.2.2"
         const val crashlytics = "com.crashlytics.sdk.android:crashlytics:2.10.1"
-        const val gmsGoogleServices = "com.google.gms:google-services:4.3.3"
+        const val gmsGoogleServices = "com.google.gms:google-services:${playService}"
         const val fabricPlugin = "io.fabric.tools:gradle:1.31.2"
         const val openSourceLicensesPlugin = "com.google.android.gms:oss-licenses-plugin:0.10.1"
         const val openSourceLicensesLibrary =
             "com.google.android.gms:play-services-oss-licenses:17.0.0"
+        const val playServiceBasement =
+            "com.google.android.gms:play-services-basement:$playServiceVersion"
+        const val playServiceBase = "com.google.android.gms:play-services-base:$playServiceVersion"
+        const val playServiceGcm = "com.google.android.gms:play-services-gcm:$playServiceVersion"
+        const val playServiceLocation =
+            "com.google.android.gms:play-services-location:$playServiceVersion"
+        const val playServiceMap = "com.google.android.gms:play-services-maps:$playServiceVersion"
     }
 
     object Kotlin {
@@ -49,7 +60,6 @@ object Libraries {
     }
 
     object AndroidX {
-        const val appcompat = "androidx.appcompat:appcompat:1.1.0"
         const val browser = "androidx.browser:browser:1.0.0"
         const val collection = "androidx.collection:collection-ktx:1.1.0"
         const val palette = "androidx.palette:palette:1.0.0"
@@ -82,6 +92,7 @@ object Libraries {
     }
 
     const val archCoreTesting = "androidx.arch.core:core-testing:2.1.0"
+    const val carbon="tk.zielony:carbon:0.16.0.1"
 
     object Paging {
         private const val version = "2.1.1"
@@ -116,7 +127,7 @@ object Libraries {
     }
 
     object UI {
-        const val version = "0.1.0-dev06"
+        private const val version = "0.1.0-dev06"
         const val composeRuntime = "androidx.compose:compose-runtime:${version}"
         const val framework = "androidx.ui:ui-framework:$version"
         const val layout = "androidx.ui:ui-layout:$version"
@@ -178,12 +189,20 @@ object Libraries {
         const val library = "com.github.MatrixDev.Roomigrant:RoomigrantLib:$version"
         const val compiler = "com.github.MatrixDev.Roomigrant:RoomigrantCompiler:$version"
     }
-    object Glide
-    {
-     private  const val version ="4.11.0"
-        const val library="com.github.bumptech.glide:glide:$version"
-        const val compiler="com.github.bumptech.glide:compiler:$version"
-    }
 
-
+        object Glide
+                {
+        private const val version = "4.11.0"
+        const val library = "com.github.bumptech.glide:glide:$version"
+        const val compiler = "com.github.bumptech.glide:compiler:$version"
+                 }
+        object FireBase
+        {
+        private const val fireStoreVersion = "21.4.1"
+        private const val crashLyticsVersion="2.10.1"
+        private const val cloudMesseging="20.1.3"
+        val fireStore = "com.google.firebase:firebase-firestore:$fireStoreVersion"
+        val crashLytics = "com.crashlytics.sdk.android:crashlytics:$crashLyticsVersion"
+        val messeging="com.google.firebase:firebase-messaging:$cloudMesseging"
+       }
 }
