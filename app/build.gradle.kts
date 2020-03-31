@@ -51,7 +51,6 @@ dependencies {
     implementation(Libraries.FireBase.fireStore)
     implementation(Libraries.FireBase.messeging)
     implementation(Libraries.carbon)
-
     implementation(Libraries.Google.material)
     implementation(Libraries.Libs.slidingRootNav)
 }

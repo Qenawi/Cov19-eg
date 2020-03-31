@@ -9,25 +9,26 @@ import android.view.View.OnTouchListener
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.yarolegovich.slidingrootnav.SlideGravity
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
+import kotlinx.android.synthetic.main.activity_home.*
 import q.tjw.cov19_eg.R
-import q.tjw.cov19_eg.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ViewBinding
     private lateinit var slidingRootNav: SlidingRootNav
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         val view = binding.root
         setContentView(view)
-
         initialization(savedInstanceState)
 
     }
@@ -93,11 +94,11 @@ class HomeActivity : AppCompatActivity() {
 //        current.setTextColor(ContextCompat.getColor(this, R.color.wit))
 //        current = textView
 //        current.setTextColor(ContextCompat.getColor(this, R.color.light))
-        binding.mainFragment.visibility = View.GONE
+        main_fragment.visibility = View.GONE
         Handler().postDelayed({
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_fragment, fragment).commit()
-            binding.mainFragment.setVisibility(View.VISIBLE)
+            main_fragment.visibility = View.VISIBLE
         }, 400)
     }
 }
