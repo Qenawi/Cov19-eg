@@ -1,7 +1,9 @@
 package q.tjw.cov19_eg.views
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.provider.Settings.Secure
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -19,12 +21,14 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private var provinceAdapter: ArrayAdapter<String>? = null
+    private var genderAdapter: ArrayAdapter<String>? = null
     private lateinit var user: User
     private var dialog: ProgressDialog? = null
     private val province = listOf("المحافظة", "القاهرة", "الجيزة", "القليوبية", "الإسكندرية", "البحيرة", "مطروح", "الدقهلية", "كفر الشيخ", "الغربية",
         "المنوفية", "دمياط", "بورسعيد", "الإسماعيلية", "السويس", "الشرقية", "شمال سيناء", "جنوب سيناء", "بني سويف", "المنيا", "الفيوم", "أسيوط",
         "الوادي الجديد", "سوهاج", "قنا", "الأقصر", "أسوان", "البحر الأحمر")
 
+    private val gender = listOf("النوع", "ذكر", "أنثى")
 
 
     private lateinit var db: FirebaseFirestore
@@ -45,29 +49,36 @@ class RegisterActivity : AppCompatActivity() {
         provinceAdapter = ArrayAdapter<String>(this,
             R.layout.spinner_selected_item,
             R.id.item, province)
+        genderAdapter = ArrayAdapter<String>(this,
+            R.layout.spinner_selected_item,
+            R.id.item, gender)
         binding.provinceSpinner.adapter = provinceAdapter
+        binding.genderSpinner.adapter = genderAdapter
 
     }
 
     fun register(view: View) {
+        Log.v("a7a", getDeviceUniqueID())
         var valid: String = Validation.registerValidation(
             binding.phone.text.toString(),
             binding.name.text.toString(),
             binding.provinceSpinner.selectedItemPosition,
-            binding.age.text.toString()
-        )
+            binding.age.text.toString(),
+            binding.genderSpinner.selectedItemPosition
+            )
         if (valid == "valid") {
             dialog?.show()
             user = User(binding.name.text.toString(),
-                binding.phone.text.toString(), province[binding.provinceSpinner.selectedItemPosition],  binding.age.text.toString())
+                binding.phone.text.toString(), province[binding.provinceSpinner.selectedItemPosition],
+                binding.age.text.toString(), gender[binding.genderSpinner.selectedItemPosition])
 
-            db.collection("users").document("7872163").set(user)
+            db.collection("users").document(getDeviceUniqueID()).set(user)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "saved", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.register_success, Toast.LENGTH_SHORT).show()
                     dialog?.dismiss()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.register_failed, Toast.LENGTH_SHORT).show()
                     Log.d("a7a", e.toString())
                     dialog?.dismiss()
                 }
@@ -75,6 +86,12 @@ class RegisterActivity : AppCompatActivity() {
         else{
             Toast.makeText(this, valid, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun getDeviceUniqueID(): String {
+        return Secure.getString(contentResolver,
+            Secure.ANDROID_ID
+        )
     }
 
 }

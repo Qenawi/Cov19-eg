@@ -4,5 +4,6 @@ data class User(
     var name: String,
     var phone: String,
     var province: String,
-    var age: String
+    var age: String,
+    var gender: String
 )

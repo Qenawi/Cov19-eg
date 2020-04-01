@@ -5,7 +5,7 @@ import q.tjw.cov19_eg.map.di.app.CO19Application
 
 object Validation {
 
-    fun registerValidation(mobile: String?, name: String?, province: Int, age: String?): String {
+    fun registerValidation(mobile: String?, name: String?, province: Int, age: String?, gender: Int): String {
         return when {
             name == "" -> {
                 CO19Application.context?.resources?.getString(R.string.invalid_name)!!
@@ -14,7 +14,10 @@ object Validation {
                 CO19Application.context?.resources?.getString(R.string.invalid_phone_number)!!
             }
             age == "" -> {
-                return CO19Application.context?.resources?.getString(R.string.invalid_name)!!
+                return CO19Application.context?.resources?.getString(R.string.invalid_age)!!
+            }
+            gender == 0 -> {
+                CO19Application.context?.resources?.getString(R.string.invalid_gender)!!
             }
             province == 0 -> {
                 CO19Application.context?.resources?.getString(R.string.invalid_province)!!
