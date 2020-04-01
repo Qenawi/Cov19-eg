@@ -17,6 +17,7 @@ class CheckActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckBinding
     private val check = listOf(0, 2, 2, 1, 0, 1, 4, 3, 2, 5)
     private var cont: Int = 0
+    private var percentage: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +62,8 @@ class CheckActivity : AppCompatActivity() {
             cont+= check[9]
         }
 
+        percentage = ((cont/20.0)*100).toInt()
+        Log.v("a7a", percentage.toString())
         when {
             cont == 0 -> {
                 showResult(resources.getString(R.string.you_are_ok))
@@ -86,11 +89,46 @@ class CheckActivity : AppCompatActivity() {
         // set the custom dialog components - text, image and button
         val ok: Button = dialog.findViewById(R.id.ok)
         val title: TextView = dialog.findViewById(R.id.title)
+        val percentageView: TextView = dialog.findViewById(R.id.percentage)
+
         title.text = result
+        percentageView.text = resources.getString(R.string.infection_percentage,
+            "%$percentage"
+        )
         dialog.show()
         ok.setOnClickListener { dialog.dismiss() }
 
 
+    }
+
+    fun checkLayout(view: View) {
+        if(view.id == R.id.check1_layout){
+            binding.checkbox1.isChecked = !binding.checkbox1.isChecked
+        }
+        else if(view.id == R.id.check2_layout){
+            binding.checkbox2.isChecked = !binding.checkbox2.isChecked
+        }
+        else if(view.id == R.id.check3_layout){
+            binding.checkbox3.isChecked = !binding.checkbox3.isChecked
+        }
+        else if(view.id == R.id.check4_layout){
+            binding.checkbox4.isChecked = !binding.checkbox4.isChecked
+        }
+        else if(view.id == R.id.check5_layout){
+            binding.checkbox5.isChecked = !binding.checkbox5.isChecked
+        }
+        else if(view.id == R.id.check6_layout){
+            binding.checkbox6.isChecked = !binding.checkbox6.isChecked
+        }
+        else if(view.id == R.id.check7_layout){
+            binding.checkbox7.isChecked = !binding.checkbox7.isChecked
+        }
+        else if(view.id == R.id.check8_layout){
+            binding.checkbox8.isChecked = !binding.checkbox8.isChecked
+        }
+        else if(view.id == R.id.check9_layout){
+            binding.checkbox9.isChecked = !binding.checkbox9.isChecked
+        }
     }
 
 

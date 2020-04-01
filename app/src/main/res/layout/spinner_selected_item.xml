@@ -6,6 +6,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="4dp"
+        android:background="@drawable/black_gradient"
+
         android:orientation="vertical">
 
         <TextView
@@ -16,11 +18,13 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:singleLine="true"
+            android:textColor="@color/carbon_green_a100"
             android:text=" bn nb b nb"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:textColor="@color/carbon_green_400"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             />
