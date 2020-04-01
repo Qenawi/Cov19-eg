@@ -7,8 +7,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import q.tjw.cov19_eg.map.ui.map_activity.MainMapActivity
-
+import q.tjw.cov19_eg.map.ui.MainMapActivity
 
 class SplashActivity : AppCompatActivity() {
 
