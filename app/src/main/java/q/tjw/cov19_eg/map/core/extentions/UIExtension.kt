@@ -147,12 +147,14 @@ fun <T:Any?>T?.validateInput(inputType: InputType):Boolean
     Password -> false
     LocationString -> (input as String).length>=10
     LocationLatLng -> true
+     Age ->  (input as String).length>=2
  }
 }?:false
 
 
 
 enum class InputType {
+    Age,
     Name,
     Address,
     Email,

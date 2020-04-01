@@ -24,7 +24,7 @@ class AddCaseUseCase @Inject constructor(
     @ViewValidation
     fun validate(caseAddress: String?, caseName: String?):Boolean
     {
-        return  caseAddress.validateInput(InputType.Address)&& caseName.validateInput(InputType.Name)
+        return  caseAddress.validateInput(InputType.Age)&& caseName.validateInput(InputType.Name)
     }
     data class Params(val case: CaseModule)
 }

@@ -38,6 +38,7 @@
                 android:background="@color/carbon_white"
                 android:inputType="number"
                 android:padding="5dp"
+                app:carbon_minCharacters="2"
                 android:text="@={viewModel.caseAddress}"
                 android:textColor="@color/carbon_black"
                 app:carbon_backgroundTint="@null"
