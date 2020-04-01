@@ -17,20 +17,24 @@ import kotlin.coroutines.CoroutineContext
 
 @Module
 class MapFeature {
-    @Provides
 
+    companion object{
+      private  const val className="MapFeature"
+    }
+    @Provides
     @Singleton
     fun fireStore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    @Named(UseCaseScopeName)
+    @Named(className+UseCaseScopeName)
     @Provides
-    fun providesCoroutinesScope(): CoroutineScope = object : CoroutineScope {
+    fun providesCoroutinesScope(): CoroutineScope = object : CoroutineScope
+    {
         private val job = Job()
         override val coroutineContext: CoroutineContext
             get() = job + Dispatchers.IO
     }
 
-     @Named(DispatcherUseCaseName)
+     @Named(className+DispatcherUseCaseName)
      @Provides
      @Singleton
      fun provideCoroutinesMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
@@ -39,9 +43,11 @@ class MapFeature {
 
     @Provides
     fun provideMapUseCase(repo:MapRepo,
-    @Named(UseCaseScopeName)
+    @Named(className+UseCaseScopeName)
     scope: CoroutineScope,
-    @Named(DispatcherUseCaseName)
+    @Named(className+DispatcherUseCaseName)
     dispatcher: CoroutineDispatcher):MapUseCase
     { return MapUseCase(repo,scope,dispatcher) }
+
+
 }

@@ -3,14 +3,10 @@ package q.tjw.cov19_eg.map.ui.map_activity
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import q.tjw.cov19_eg.map.core.data.CaseModule
-import q.tjw.cov19_eg.map.core.data.dummyCaseModule
 import q.tjw.cov19_eg.map.core.data.mToCaseModule
 import q.tjw.cov19_eg.map.core.exception.Either
 import q.tjw.cov19_eg.map.core.exception.Failure
-import q.tjw.cov19_eg.map.core.exception.setArgs
-import q.tjw.cov19_eg.map.core.extentions.mMapToJsonElement
-import q.tjw.cov19_eg.map.core.extentions.mMapToObject
-import q.tjw.cov19_eg.map.di.features.appFeatures.NetworkHandler
+import q.tjw.cov19_eg.map.di.features.NetworkHandler
 import javax.inject.Inject
 
 interface MapRepo {

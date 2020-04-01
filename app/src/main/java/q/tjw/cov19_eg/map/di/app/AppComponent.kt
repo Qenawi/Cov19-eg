@@ -5,7 +5,10 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import q.tjw.cov19_eg.map.di.features.MainFeature
-import q.tjw.cov19_eg.map.ui.map_activity.MainMapActivity
+import q.tjw.cov19_eg.map.ui.MainMapActivity
+import q.tjw.cov19_eg.map.ui.map_activity.MapFragment
+import q.tjw.cov19_eg.map.ui.map_reportcase.AddCaseViewModel
+import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
 import javax.inject.Singleton
 
 @Singleton
@@ -24,5 +27,7 @@ interface AppComponent {
         /**modules to be provided**/
     }
     fun inject(app: CO19Application)
-    fun inject(app: MainMapActivity)
+    fun inject(fragmentAddCase: FragmentAddCase)
+    fun inject(mapFragment: MapFragment)
+    fun inject(addCaseViewModel: AddCaseViewModel)
 }

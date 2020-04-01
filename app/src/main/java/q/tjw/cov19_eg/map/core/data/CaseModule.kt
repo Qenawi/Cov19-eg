@@ -20,6 +20,9 @@ private const val isConfirmed = "isConfirmed"
 private const val lat = "lat"
 private const val lng = "lng"
 private const val userId = "userId"
+private const val caseGender = "caseGender"
+private const val caseAge = "caseAge"
+
 
 @Parcelize
 data class CaseModule(
@@ -29,10 +32,11 @@ data class CaseModule(
     @SerializedName(isConfirmed) val verified: Boolean
     , @SerializedName(lat) val locationLat: String?,
     @SerializedName(lng) val locationLng: String?,
-    @SerializedName(userId) val uId: String
+    @SerializedName(userId) val uId: String,
+    @SerializedName(caseAge ) val Age:Int?
+    ,@SerializedName(caseGender) val Gender:String?
 ) : Parcelable {
-    constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS)
-
+    constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS)
 }
 fun Map<String, Any>.mToCaseModule(): CaseModule = this.mMapToJsonElement().mMapToObject()?: dummyCaseModule()
 fun dummyCaseModule() = CaseModule()

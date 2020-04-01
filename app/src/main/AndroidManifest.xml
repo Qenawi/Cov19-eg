@@ -22,7 +22,7 @@
             android:name=".views.RegisterActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".map.ui.map_activity.MainMapActivity" >
+        <activity android:name=".map.ui.MainMapActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.yarolegovich.slidingrootnav.SlideGravity
@@ -20,7 +21,7 @@ import q.tjw.cov19_eg.R
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ViewBinding
+    private lateinit var binding: ViewDataBinding
     private lateinit var slidingRootNav: SlidingRootNav
 
 
