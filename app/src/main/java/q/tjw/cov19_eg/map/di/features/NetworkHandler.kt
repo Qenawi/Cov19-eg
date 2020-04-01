@@ -1,4 +1,4 @@
-package q.tjw.cov19_eg.map.di.features.appFeatures
+package q.tjw.cov19_eg.map.di.features
 import android.content.Context
 import q.tjw.cov19_eg.map.core.extentions.networkInfo
 import javax.inject.Inject

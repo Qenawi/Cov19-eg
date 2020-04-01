@@ -17,4 +17,9 @@
     </string>
     <string name="case_location">Case Location</string>
     <string name="add_case_date">Case Date</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="case_gender">Gender</string>
+    <string name="case_age">Case Approximate Age</string>
+    <string name="area">Area</string>
 </resources>

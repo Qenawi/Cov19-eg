@@ -16,12 +16,12 @@ import q.tjw.cov19_eg.map.core.extentions.cHideSoftKeyboard
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract fun layoutId(): Int
     lateinit var binding: B
-    val fragHolderId = 0
+    private val fragHolderId = R.id.l_fragment_holder
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId())
         binding.lifecycleOwner = this
-        binding.root.layoutDirection=View.LAYOUT_DIRECTION_LOCALE
+        binding.root.layoutDirection = View.LAYOUT_DIRECTION_LOCALE
         cHideSoftKeyboard()
 
     }

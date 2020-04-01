@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:padding="0dp"
         android:alpha="0.7"
+        android:background="@color/carbon_black"
         android:layout_height="wrap_content">
 
         <carbon.widget.TextView

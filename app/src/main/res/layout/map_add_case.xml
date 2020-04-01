@@ -1,159 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/black_gradient">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <carbon.widget.InputLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="q.tjw.cov19_eg.map.ui.map_reportcase.AddCaseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:carbon_labelTextSize="20sp"
-        android:layout_margin="30dp"
-        android:id="@+id/v_case_address_input_layout"
-        app:carbon_label="@string/case_address"
-        app:carbon_labelStyle="persistent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-        <carbon.widget.EditText
+        android:layout_height="match_parent"
+        android:background="@drawable/black_gradient">
+
+        <carbon.widget.InputLayout
+            android:id="@+id/v_case_address_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:carbon_label="@string/case_age"
+            app:carbon_labelStyle="persistent"
+            app:carbon_labelTextSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:lock_view="@{viewModel.MLoading}">
+
+            <carbon.widget.EditText
+                android:id="@+id/v_case_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/carbon_white"
+                android:inputType="number"
+                android:padding="5dp"
+                app:carbon_minCharacters="2"
+                android:text="@={viewModel.caseAddress}"
+                android:textColor="@color/carbon_black"
+                app:carbon_backgroundTint="@null"
+                app:carbon_cornerRadius="5dp"
+                app:carbon_required="true"
+                app:carbon_tint="@null" />
+        </carbon.widget.InputLayout>
+
+        <carbon.widget.InputLayout
+            android:id="@+id/v_case_name_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            app:carbon_required="true"
-            app:carbon_minCharacters="20"
-            app:carbon_maxCharacters="300"
-            android:layout_margin="10dp"
-            android:inputType="textMultiLine"
-            android:id="@+id/v_case_address"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="30dp"
+            app:carbon_label="@string/case_name"
+            app:carbon_labelStyle="persistent"
+            app:carbon_labelTextSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_case_address_input_layout"
+            app:layout_constraintVertical_bias="0.0"
+            app:lock_view="@{viewModel.MLoading}">
+
+            <carbon.widget.EditText
+                android:id="@+id/v_case_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/carbon_white"
+                android:padding="5dp"
+                android:maxLines="1"
+                android:text="@={viewModel.caseName}"
+                android:textColor="@color/carbon_black"
+                app:carbon_backgroundTint="@null"
+                app:carbon_cornerRadius="5dp"
+                app:carbon_minCharacters="10"
+                app:carbon_required="true"
+                app:carbon_tint="@null" />
+        </carbon.widget.InputLayout>
+
+        <carbon.widget.DropDown
+            android:id="@+id/dropDown"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            app:carbon_tint="@null"
+            app:carbon_backgroundTint="@null"
             android:background="@color/carbon_white"
-            app:carbon_cornerRadius="5dp" />
-    </carbon.widget.InputLayout>
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:textColor="@color/carbon_black"
+            app:carbon_cornerRadius="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <carbon.widget.InputLayout
-        android:id="@+id/v_case_name_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        app:carbon_label="@string/case_name"
-        app:carbon_labelStyle="persistent"
-        app:carbon_labelTextSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/v_case_address_input_layout"
-        app:layout_constraintVertical_bias="0.0">
-
-        <carbon.widget.EditText
-            android:id="@+id/v_case_name"
+        <carbon.widget.Button
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:carbon_required="true"
-            app:carbon_minCharacters="20"
-            android:background="@color/carbon_white"
-            android:padding="5dp"
-            app:carbon_cornerRadius="5dp" />
-    </carbon.widget.InputLayout>
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/co19_button_gradient"
+            android:onClick="@{(v)->viewModel.validate(v)}"
+            android:text="@string/send_report"
+            android:textSize="20sp"
+            app:carbon_cornerRadius="10dp"
+            app:carbon_rippleColor="@color/carbon_white"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
+            app:layout_constraintVertical_bias="1.0"
+            app:lock_view="@{viewModel.MLoading}" />
 
-    <carbon.widget.Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/co19_button_gradient"
-        android:text="@string/send_report"
-        android:textSize="22sp"
-        app:carbon_cornerRadius="10dp"
-        app:carbon_rippleColor="@color/carbon_white"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
-        app:layout_constraintVertical_bias="1.0" />
+        <carbon.widget.TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:alpha="0.7"
+            android:text="@string/add_case_use_policy"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
+            app:layout_constraintVertical_bias="1" />
 
-    <carbon.widget.TextView
-        android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8dp"
-        android:alpha="0.7"
-        android:text="@string/add_case_use_policy"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
-        app:layout_constraintVertical_bias="0.97" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/case_location"
+            android:textColor="@color/carbon_white"
+            android:textSize="14sp"
+            app:chipBackgroundColor="@color/carbon_black_54"
+            app:chip_location_activation="@{viewModel.MCaseLocation}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip2"
-        android:alpha="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
-        android:text="@string/case_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.0" />
+        <carbon.widget.CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:checked="@{viewModel.caseConfirmed}"
+            android:padding="0dp"
+            android:text="@string/add_case_check_box_msg"
+            android:textColor="@color/carbon_white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dropDown"
+            app:layout_constraintVertical_bias="0.0"
+            app:lock_view="@{viewModel.MLoading}" />
 
-    <carbon.widget.CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
-        android:textSize="20sp"
-        android:textColor="@color/carbon_white"
-        android:checked="false"
-        android:layout_marginEnd="30dp"
-        android:text="@string/add_case_check_box_msg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
-        app:layout_constraintVertical_bias="0.0" />
+        <carbon.widget.CheckBox
+            android:padding="0dp"
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/male"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip4"
-        android:alpha="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/add_case_date"
-        app:layout_constraintBottom_toBottomOf="@+id/chip2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/chip2"
-        app:layout_constraintTop_toTopOf="@+id/chip2" />
 
-    <ProgressBar
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chip2"
-        app:layout_constraintVertical_bias="0.57" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <carbon.widget.CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:padding="0dp"
+            android:text="@string/female"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/checkBox2"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4"
+            android:textColor="@color/carbon_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="14sp"
+            android:text="@string/add_case_date"
+            app:chipBackgroundColor="@color/carbon_black_54"
+            app:chip_date_activation="@{viewModel.MCaseDate}"
+            app:layout_constraintBottom_toBottomOf="@+id/chip2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/chip2"
+            app:layout_constraintTop_toTopOf="@+id/chip2" />
+
+        <ProgressBar
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip2"
+            app:layout_constraintVertical_bias="0.57"
+            app:progress_view="@{viewModel.MLoading}" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:textSize="15sp"
+            android:textColor="@color/carbon_green_400"
+            android:text="@string/case_gender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/area"
+            android:textColor="@color/carbon_green_400"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
