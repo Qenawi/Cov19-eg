@@ -22,6 +22,7 @@ private const val lng = "lng"
 private const val userId = "userId"
 private const val caseGender = "caseGender"
 private const val caseAge = "caseAge"
+private const val casePercentage = "casePercentage"
 
 
 @Parcelize
@@ -35,8 +36,9 @@ data class CaseModule(
     @SerializedName(userId) val uId: String,
     @SerializedName(caseAge ) val Age:Int?
     ,@SerializedName(caseGender) val Gender:String?
+    ,@SerializedName(casePercentage) val percentage:Int?
 ) : Parcelable {
-    constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS)
+    constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS, emptyI)
 }
 fun Map<String, Any>.mToCaseModule(): CaseModule = this.mMapToJsonElement().mMapToObject()?: dummyCaseModule()
 fun dummyCaseModule() = CaseModule()

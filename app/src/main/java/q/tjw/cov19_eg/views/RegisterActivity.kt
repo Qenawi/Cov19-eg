@@ -14,12 +14,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.ActivityRegisterBinding
 import q.tjw.cov19_eg.model.User
+import q.tjw.cov19_eg.utilities.SharedPreference
 import q.tjw.cov19_eg.utilities.Validation
 
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var sharedPreference: SharedPreference
     private var provinceAdapter: ArrayAdapter<String>? = null
     private var genderAdapter: ArrayAdapter<String>? = null
     private lateinit var user: User
@@ -43,6 +45,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun initialization() {
         FirebaseApp.initializeApp(this)
+        sharedPreference = SharedPreference(this)
         dialog = ProgressDialog(this)
         dialog?.setMessage(resources?.getString(R.string.please_wait))
         db = FirebaseFirestore.getInstance()
@@ -75,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
             db.collection("users").document(getDeviceUniqueID()).set(user)
                 .addOnSuccessListener {
                     Toast.makeText(this, R.string.register_success, Toast.LENGTH_SHORT).show()
+                    sharedPreference.setIsLogin(true)
                     dialog?.dismiss()
                 }
                 .addOnFailureListener { e ->

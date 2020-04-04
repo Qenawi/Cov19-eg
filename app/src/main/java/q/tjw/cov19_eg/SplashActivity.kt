@@ -12,15 +12,12 @@ import q.tjw.cov19_eg.map.ui.MainMapActivity
 class SplashActivity : AppCompatActivity() {
 
     val PERMISSION_ALL = 1
-    private val permissions = arrayOf<String>(
-        Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION
-    )
+    private val permissions = arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
     //    startActivity(Intent(this,MainMapActivity::class.java))
@@ -40,10 +37,8 @@ class SplashActivity : AppCompatActivity() {
     private fun hasPermissions(): Boolean {
 
             for (permission in permissions) {
-                if (ActivityCompat.checkSelfPermission(this,
-                        permission
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
+                if (ActivityCompat.checkSelfPermission(this, permission)
+                    != PackageManager.PERMISSION_GRANTED) {
                     return false
                 }
 
