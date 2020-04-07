@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-     <variable
-         name="viewModel"
-         type="q.tjw.cov19_eg.map.ui.map_activity.MapViewModel" />
+
+        <import type="q.tjw.cov19_eg.map.core.data.WorldLifeStateModule" />
+
+        <variable
+            name="egyptModule"
+            type="androidx.lifecycle.MutableLiveData&lt;WorldLifeStateModule&gt;" />
+
+        <variable
+            name="worldModule"
+            type="androidx.lifecycle.MutableLiveData&lt;WorldLifeStateModule&gt;" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:padding="0dp"
-        android:alpha="0.7"
-        android:background="@color/carbon_black"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp">
 
         <carbon.widget.TextView
             android:id="@+id/l_total_count"
+            style="@style/TextViewStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -34,31 +42,35 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView"
+            style="@style/TextViewStyle_mid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textSize="16sp"
             android:textColor="@color/carbon_red_300"
+            android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/l_total_count"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{viewModel.MWorldLiveFeed.totalCount}"
+            app:safe_text="@{worldModule.totalCases}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
             android:id="@+id/textView2"
+            style="@style/TextViewStyle_bold"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:textSize="15sp"
-            android:textColor="@color/carbon_green_400"
             android:layout_marginBottom="16dp"
             android:text="@string/total_recovered"
+            android:textColor="@color/carbon_green_400"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -68,32 +80,37 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView3"
+            style="@style/TextViewStyle_mid"
+            app:decimal_format="@{true}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_red_300"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{viewModel.MWorldLiveFeed.recoveredCount}"
+            app:safe_text="@{worldModule.recovered}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
             android:id="@+id/textView4"
+            style="@style/TextViewStyle_bold"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:textSize="15sp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/death"
             android:textColor="@color/carbon_green_400"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -103,19 +120,22 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView5"
+            style="@style/TextViewStyle_mid"
+            app:decimal_format="@{true}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:textSize="16sp"
             android:textColor="@color/carbon_red_300"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{viewModel.MWorldLiveFeed.deathCount}"
+            app:safe_text="@{worldModule.death}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -124,9 +144,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:textSize="17sp"
             android:text="@string/WorldWide"
             android:textColor="@color/carbon_white"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -141,9 +161,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:textSize="17sp"
             android:layout_marginBottom="16dp"
             android:text="@string/egypt_count"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -153,48 +173,57 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView8"
+            style="@style/TextViewStyle_mid"
+            app:decimal_format="@{true}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            tools:text="@tools:sample/date/hhmm"
-            android:textSize="16sp"
-            app:safe_text="@{viewModel.MEgyptLiveFeed.totalCount}"
             android:textColor="@color/carbon_orange_300"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toTopOf="@+id/l_total_count"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:safe_text="@{egyptModule.totalCases}"
+            tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
             android:id="@+id/textView9"
+            style="@style/TextViewStyle_mid"
+            app:decimal_format="@{true}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
             android:layout_marginBottom="16dp"
-            tools:text="@tools:sample/date/hhmm"
-            app:safe_text="@{viewModel.MEgyptLiveFeed.recoveredCount}"
             android:textColor="@color/carbon_orange_300"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:safe_text="@{egyptModule.recovered}"
+            tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
             android:id="@+id/textView10"
+            style="@style/TextViewStyle_mid"
+            app:decimal_format="@{true}"
+
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textSize="16sp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            tools:text="@tools:sample/date/hhmm"
-            app:safe_text="@{viewModel.MEgyptLiveFeed.deathCount}"
             android:textColor="@color/carbon_orange_300"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:safe_text="@{egyptModule.death}"
+            tools:text="@tools:sample/date/hhmm" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

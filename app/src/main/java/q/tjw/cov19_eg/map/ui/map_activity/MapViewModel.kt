@@ -12,8 +12,6 @@ class MapViewModel @Inject constructor(app: Application, val useCase: MapUseCase
     BaseViewModel<MapUseCase>(app, useCase) {
     val mLoading = MutableLiveData<Boolean>()
     val mMapData = MutableLiveData<ArrayList<CaseModule>>()
-    val mWorldLiveFeed=MutableLiveData<WorldLifeStateModule>()
-    val mEgyptLiveFeed=MutableLiveData<WorldLifeStateModule>()
     fun getLocations()
     {
         mLoading.value = true

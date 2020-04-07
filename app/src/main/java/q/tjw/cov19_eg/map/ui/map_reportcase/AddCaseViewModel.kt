@@ -10,6 +10,7 @@ import q.tjw.cov19_eg.map.core.data.emptyB
 import q.tjw.cov19_eg.map.core.data.emptyS
 import q.tjw.cov19_eg.map.core.exception.Failure
 import q.tjw.cov19_eg.map.core.extentions.ViewValidation
+import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.di.features.LocationManger
 import java.util.*
@@ -64,7 +65,11 @@ class AddCaseViewModel @Inject constructor(
                      "Cairo",
                     caseName.value ?: emptyS, mCaseDate.value ?: emptyS,
                     caseConfirmed.value ?: emptyB, mCaseLocation.value?.latitude.toString(),
+<<<<<<< HEAD
                     mCaseLocation.value?.longitude.toString(), "randomID",caseAddress.value?.toInt()?:22,"male", 50
+=======
+                    mCaseLocation.value?.longitude.toString(), getApplication<CO19Application>().getDeviceUniqueFootPrint(),caseAddress.value?.toInt()?:22,"male"
+>>>>>>> MapCitySelectorFeature
                 )
             )
         else toastMutable.postValue(Failure.ValidationError)

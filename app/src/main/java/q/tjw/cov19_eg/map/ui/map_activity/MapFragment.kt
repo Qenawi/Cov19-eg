@@ -12,9 +12,12 @@ import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.android.synthetic.main.map_activity.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapActivityBinding
+import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.extentions.*
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
+import q.tjw.cov19_eg.map.ui.map_reportcase.ActivityAddCase
 import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
 import q.tjw.cov19_eg.utilities.SharedPreference
 import q.tjw.cov19_eg.views.CheckActivity
@@ -33,7 +36,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private lateinit var viewModel: MapViewModel
     @Inject
     lateinit var factory: ViewModelProvider.Factory
-
     override fun layoutId() = R.layout.map_activity
     override fun view_life_cycle_owner() = viewLifecycleOwner
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         viewModel = viewModel(factory) {
             observe(mMapData) { covCases ->
                 covCases?.let { case ->
-                    debugPrint(case)
+                    map.mMapAddMarkers(case)
                 }
             }
         }
@@ -70,7 +72,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        l_addreport.setOnClickListener {
+        l_addCase.setOnClickListener {
             delay250 { a -> addCase() }
         }
         l_updateStatus.setOnClickListener{
@@ -87,7 +89,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
     }
 
-    private fun addCase() = mAddFragment(activity) { FragmentAddCase.newInstance() }
+    private fun addCase() = mLaunchActivity<ActivityAddCase>(contex = context)
+    override fun onResume() {
+        super.onResume()
+        (activity as MainMapActivity?)?.currentFrag?.postValue(Navigation.HomeMap)
+
+        (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_worldMap))
+    }
 }
 
 

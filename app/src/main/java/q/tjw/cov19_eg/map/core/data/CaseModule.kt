@@ -13,6 +13,7 @@ const val emptyS = ""
 const val emptyI = 0
 const val emptyB = false
 
+<<<<<<< HEAD
 private const val caseAddress = "caseAddress"
 private const val caseName = "caseName"
 private const val date = "date"
@@ -23,6 +24,17 @@ private const val userId = "userId"
 private const val caseGender = "caseGender"
 private const val caseAge = "caseAge"
 private const val casePercentage = "casePercentage"
+=======
+private const val caseAddress = "address"
+private const val caseName = "title"
+private const val date = "time"
+private const val isConfirmed = "verified"
+private const val lat = "locationLat"
+private const val lng = "locationLng"
+private const val userId = "uId"
+private const val caseGender = "gender"
+private const val caseAge = "Age"
+>>>>>>> MapCitySelectorFeature
 
 
 @Parcelize
@@ -35,8 +47,12 @@ data class CaseModule(
     @SerializedName(lng) val locationLng: String?,
     @SerializedName(userId) val uId: String,
     @SerializedName(caseAge ) val Age:Int?
+<<<<<<< HEAD
     ,@SerializedName(caseGender) val Gender:String?
     ,@SerializedName(casePercentage) val percentage:Int?
+=======
+    ,@SerializedName(caseGender) val gender:String?
+>>>>>>> MapCitySelectorFeature
 ) : Parcelable {
     constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS, emptyI)
 }

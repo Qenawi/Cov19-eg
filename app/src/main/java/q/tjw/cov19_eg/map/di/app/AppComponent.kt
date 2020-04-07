@@ -9,6 +9,8 @@ import q.tjw.cov19_eg.map.ui.MainMapActivity
 import q.tjw.cov19_eg.map.ui.map_activity.MapFragment
 import q.tjw.cov19_eg.map.ui.map_reportcase.AddCaseViewModel
 import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
+import q.tjw.cov19_eg.map.ui.profile.ProfileFragment
+import q.tjw.cov19_eg.map.ui.status.FragmentWorldStatus
 import javax.inject.Singleton
 
 @Singleton
@@ -30,4 +32,6 @@ interface AppComponent {
     fun inject(fragmentAddCase: FragmentAddCase)
     fun inject(mapFragment: MapFragment)
     fun inject(addCaseViewModel: AddCaseViewModel)
+    fun inject(fragmentWorldStatus: FragmentWorldStatus)
+    fun inject(profileFragment: ProfileFragment)
 }

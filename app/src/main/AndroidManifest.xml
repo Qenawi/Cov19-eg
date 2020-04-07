@@ -39,6 +39,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+        <activity android:name=".map.ui.map_activity.MainMapActivity" />
+        <activity android:name=".map.ui.map_reportcase.ActivityAddCase" />
+
+>>>>>>> MapCitySelectorFeature
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/mapKey" />

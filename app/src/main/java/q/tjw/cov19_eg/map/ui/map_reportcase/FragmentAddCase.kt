@@ -1,16 +1,21 @@
 package q.tjw.cov19_eg.map.ui.map_reportcase
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import carbon.widget.DropDown
 import kotlinx.android.synthetic.main.map_add_case.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapAddCaseBinding
+import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
+import q.tjw.cov19_eg.map.core.extentions.Navigation
 import q.tjw.cov19_eg.map.core.extentions.close
 import q.tjw.cov19_eg.map.core.extentions.observe
 import q.tjw.cov19_eg.map.core.extentions.viewModel
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
 import javax.inject.Inject
 class FragmentAddCase : BaseFragment() {
     companion object {
@@ -25,13 +30,24 @@ class FragmentAddCase : BaseFragment() {
         super.onCreate(savedInstanceState)
         CO19Application.appComponent.inject(this)
         viewModel = viewModel(factory) {
-         observe(mCaseResult){result-> result?.let {close()} }
+         observe(mCaseResult){result-> result?.let {
+             activity?.finish()
+         }
+         }
         }
     }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (binding as MapAddCaseBinding).viewModel = viewModel
         (dropDown as DropDown<String>).setItems(arrayListOf("cairo","giza","other"))
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.add_case))
 
     }
 }
