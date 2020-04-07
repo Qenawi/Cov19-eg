@@ -55,7 +55,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/l_total_count"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{worldModule.totalCount}"
+            app:safe_text="@{worldModule.totalCases}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -94,7 +94,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{worldModule.recoveredCount}"
+            app:safe_text="@{worldModule.recovered}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -133,7 +133,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{worldModule.deathCount}"
+            app:safe_text="@{worldModule.death}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -183,7 +183,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toTopOf="@+id/l_total_count"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{egyptModule.totalCount}"
+            app:safe_text="@{egyptModule.totalCases}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -201,7 +201,7 @@
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
             app:layout_constraintVertical_bias="0.0"
-            app:safe_text="@{egyptModule.recoveredCount}"
+            app:safe_text="@{egyptModule.recovered}"
             tools:text="@tools:sample/date/hhmm" />
 
         <carbon.widget.TextView
@@ -217,7 +217,7 @@
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
-            app:safe_text="@{egyptModule.deathCount}"
+            app:safe_text="@{egyptModule.death}"
             tools:text="@tools:sample/date/hhmm" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

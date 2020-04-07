@@ -22,9 +22,8 @@ fun Activity?.setUpMap(m:GoogleMap?)=this?.run {
 fun GoogleMap?.mMapAddMarkers(data:ArrayList<CaseModule>){
  for(i in data)
  {
-     debugPrint(i.locationLat)
-     debugPrint(i.locationLng)
-    // this?.addMarker(MarkerOptions().position(LatLng(i.locationLat?.toDouble()?:0.0,i.locationLng?.toDouble()?:0.0)).title(i.address))
+//todo fix null issue
+     this?.addMarker(MarkerOptions().position(LatLng(i.locationLat?.toDouble()?:0.0,i.locationLng?.toDouble()?:0.0)).title(i.address))
  }
 
 }

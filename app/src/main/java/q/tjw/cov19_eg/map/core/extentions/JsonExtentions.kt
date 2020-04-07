@@ -1,9 +1,8 @@
 package q.tjw.cov19_eg.map.core.extentions
 
+import com.google.common.reflect.TypeToken
 import com.google.gson.*
-import com.google.gson.reflect.TypeToken
 import q.tjw.cov19_eg.map.ui.map_activity.printError
-import java.io.File
 
 
 fun Map<String, Any>.mMapToJsonElement(): JsonElement = this.hashToJe()
@@ -44,8 +43,7 @@ inline fun <reified T : Any> JsonElement.mMapToObject(): T? =
 @Throws(JsonSyntaxException::class)
 inline fun <reified T : Any> mapJson(je: JsonElement): T {
     val type = object : TypeToken<T>() {}.type//type
-    val e:T= Gson().fromJson(je, type)
-    return  e
+    return Gson().fromJson(je, type)
 }
 
 @Throws(JsonSyntaxException::class)

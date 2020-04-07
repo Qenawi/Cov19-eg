@@ -33,8 +33,8 @@ class FragmentWorldStatus : BaseFragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         fetchState()
-        ( binding as MapWorldStatusBinding).include.egyptModule=egyptState
-        ( binding as MapWorldStatusBinding).include.worldModule=worldState
+        (binding as MapWorldStatusBinding).include.egyptModule = egyptState
+        (binding as MapWorldStatusBinding).include.worldModule = worldState
 
         return binding.root
     }

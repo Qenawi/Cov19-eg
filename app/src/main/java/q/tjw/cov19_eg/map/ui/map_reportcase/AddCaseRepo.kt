@@ -1,8 +1,10 @@
 package q.tjw.cov19_eg.map.ui.map_reportcase
 
 import com.google.firebase.firestore.FirebaseFirestore
+import q.tjw.cov19_eg.map.core.data.CaseModule
 import q.tjw.cov19_eg.map.core.exception.Either
 import q.tjw.cov19_eg.map.core.exception.Failure
+import q.tjw.cov19_eg.map.core.extentions.mAnyToJsonElement
 import q.tjw.cov19_eg.map.di.features.NetworkHandler
 import q.tjw.cov19_eg.map.ui.map_activity.printError
 import javax.inject.Inject
