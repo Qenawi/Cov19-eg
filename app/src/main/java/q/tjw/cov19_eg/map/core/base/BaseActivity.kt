@@ -9,19 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import q.tjw.cov19_eg.map.core.extentions.inTransaction
 import android.view.View
+import androidx.lifecycle.MutableLiveData
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.map.core.extentions.cHideSoftKeyboard
+import q.tjw.cov19_eg.map.core.extentions.observe
 
 
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract fun layoutId(): Int
     lateinit var binding: B
     private val fragHolderId = R.id.l_fragment_holder
+    val toolbarTitle = MutableLiveData<String>()
+    val callBack = MutableLiveData<Boolean>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId())
         binding.lifecycleOwner = this
         binding.root.layoutDirection = View.LAYOUT_DIRECTION_LOCALE
+        this.observe(callBack) { click -> click?.let { onNavigation() } }
         cHideSoftKeyboard()
 
     }
@@ -66,6 +71,9 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+   private fun onNavigation() {
+        onBackPressed()
     }
 
 

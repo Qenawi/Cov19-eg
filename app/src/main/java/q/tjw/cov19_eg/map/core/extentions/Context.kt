@@ -9,10 +9,14 @@ import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
+import com.google.firebase.FirebaseApp
+import com.google.firebase.iid.FirebaseInstanceId
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.map.core.base.BaseActivity
+import java.lang.Exception
 
 
 val Context.networkInfo: NetworkInfo?
@@ -49,3 +53,8 @@ inline fun <reified T : Application> AndroidViewModel.getString(int: Int): Strin
 fun Context?.get_prefs(): SharedPreferences? {
     return this?.applicationContext?.getSharedPreferences(getString(R.string.AppPrefs_MainKey), 0)
 }
+
+
+@SuppressLint("HardwareIds")
+fun  Context?.getDeviceUniqueFootPrint():String=try {Settings.Secure.getString(this?.contentResolver, Settings.Secure.ANDROID_ID)
+}catch (e:Exception){FirebaseInstanceId.getInstance().id}

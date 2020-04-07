@@ -38,5 +38,6 @@ data class CaseModule(
 ) : Parcelable {
     constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS)
 }
-fun Map<String, Any>.mToCaseModule(): CaseModule = this.mMapToJsonElement().mMapToObject()?: dummyCaseModule()
+fun Map<String, Any>.mToCaseModule(): CaseModule =
+    this.mMapToJsonElement().mMapToObject()?: dummyCaseModule()
 fun dummyCaseModule() = CaseModule()

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="q.tjw.cov19_eg.map.core.extentions.Navigation" />
+
+        <variable
+            name="navigator"
+            type="androidx.lifecycle.MutableLiveData&lt;Navigation&gt;" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Main content -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/carbon_black"
+            android:theme="@style/BottomBarThem"
+            app:bottom_navigation="@{navigator}"
+            app:itemHorizontalTranslationEnabled="true"
+            app:itemRippleColor="@color/app_green"
+            app:labelVisibilityMode="auto"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/l_worldMap"
+        android:icon="@drawable/globe"
+        android:title="@string/l_worldMap" />
+    <item
+        android:id="@+id/l_worldStatus"
+        android:icon="@drawable/pie_chart"
+        android:title="@string/l_worldStatus" />
+    <item
+        android:id="@+id/l_Profile"
+        android:icon="@drawable/user"
+        android:title="@string/l_UserProfile" />
+</menu>

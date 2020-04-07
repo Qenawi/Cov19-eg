@@ -2,9 +2,12 @@
   <dictionary name="qenawi">
     <words>
       <w>addreport</w>
+      <w>amda</w>
+      <w>bfan</w>
       <w>constraintlayout</w>
       <w>coroutines</w>
       <w>crashlytics</w>
+      <w>extentions</w>
       <w>kapt</w>
       <w>lytics</w>
       <w>roomigrant</w>

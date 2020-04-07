@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="image_description" translatable="false">img_descriptions</string>
+    <string name="font_bold" translatable="false">fonts/cairo_bold.ttf</string>
+    <string name="font_mid" translatable="false">fonts/cairo_regular.ttf</string>
+    <string name="font_reg" translatable="false">fonts/cairo_light.ttf</string>
     <string name="mapKey" translatable="false">AIzaSyBfanKpNW1IUugDILknGRO0KO14YFm65UM</string>
     <string name="AppPrefs_MainKey" translatable="false">C19Key</string>
     <string name="add_case">Add Case</string>
@@ -22,4 +26,13 @@
     <string name="case_gender">Gender</string>
     <string name="case_age">Case Approximate Age</string>
     <string name="area">Area</string>
+    <string name="l_worldStatus">WorldStatus</string>
+    <string name="l_UserProfile">Profile</string>
+    <string name="add_case_check_box_msg">Case 100% Positive</string>
+    <string name="l_worldMap">Map</string>
+    <string name="l_stateLastUpdateIn">Updated every</string>
+    <string name="l_UserCity">City</string>
+    <string name="l_UserPhoneNumber">Phone</string>
+    <string name="Verified" >Verified</string>
+    <string name="Unverified" >Unverified</string>
 </resources>
