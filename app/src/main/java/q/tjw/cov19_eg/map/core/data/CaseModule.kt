@@ -1,30 +1,14 @@
 package q.tjw.cov19_eg.map.core.data
-
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import q.tjw.cov19_eg.map.core.extentions.mMapToJsonElement
 import q.tjw.cov19_eg.map.core.extentions.mMapToObject
-import q.tjw.cov19_eg.map.ui.map_activity.debugPrint
-import q.tjw.cov19_eg.map.ui.map_activity.printError
-import javax.inject.Named
 
 const val emptyS = ""
 const val emptyI = 0
 const val emptyB = false
-
-<<<<<<< HEAD
-private const val caseAddress = "caseAddress"
-private const val caseName = "caseName"
-private const val date = "date"
-private const val isConfirmed = "isConfirmed"
-private const val lat = "lat"
-private const val lng = "lng"
-private const val userId = "userId"
-private const val caseGender = "caseGender"
-private const val caseAge = "caseAge"
 private const val casePercentage = "casePercentage"
-=======
 private const val caseAddress = "address"
 private const val caseName = "title"
 private const val date = "time"
@@ -33,9 +17,7 @@ private const val lat = "locationLat"
 private const val lng = "locationLng"
 private const val userId = "uId"
 private const val caseGender = "gender"
-private const val caseAge = "Age"
->>>>>>> MapCitySelectorFeature
-
+private const val caseAge = "age"
 
 @Parcelize
 data class CaseModule(
@@ -47,12 +29,8 @@ data class CaseModule(
     @SerializedName(lng) val locationLng: String?,
     @SerializedName(userId) val uId: String,
     @SerializedName(caseAge ) val Age:Int?
-<<<<<<< HEAD
-    ,@SerializedName(caseGender) val Gender:String?
-    ,@SerializedName(casePercentage) val percentage:Int?
-=======
-    ,@SerializedName(caseGender) val gender:String?
->>>>>>> MapCitySelectorFeature
+    ,@SerializedName(caseGender) val gender:String?,
+    @SerializedName(casePercentage) val percentage:Int?
 ) : Parcelable {
     constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS, emptyI)
 }

@@ -65,11 +65,8 @@ class AddCaseViewModel @Inject constructor(
                      "Cairo",
                     caseName.value ?: emptyS, mCaseDate.value ?: emptyS,
                     caseConfirmed.value ?: emptyB, mCaseLocation.value?.latitude.toString(),
-<<<<<<< HEAD
-                    mCaseLocation.value?.longitude.toString(), "randomID",caseAddress.value?.toInt()?:22,"male", 50
-=======
-                    mCaseLocation.value?.longitude.toString(), getApplication<CO19Application>().getDeviceUniqueFootPrint(),caseAddress.value?.toInt()?:22,"male"
->>>>>>> MapCitySelectorFeature
+                    mCaseLocation.value?.longitude.toString(), getApplication<CO19Application>().getDeviceUniqueFootPrint(),caseAddress.value?.toInt()?:22,"male",50
+
                 )
             )
         else toastMutable.postValue(Failure.ValidationError)

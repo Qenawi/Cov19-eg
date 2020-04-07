@@ -75,7 +75,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         l_addCase.setOnClickListener {
             delay250 { a -> addCase() }
         }
-        l_updateStatus.setOnClickListener{
+        l_updateProfile.setOnClickListener{
             val sharedPreference: SharedPreference = SharedPreference(CO19Application.context!!)
             if (sharedPreference.getIsLogin()!!) {
                 startActivity(Intent(activity, CheckActivity::class.java))
