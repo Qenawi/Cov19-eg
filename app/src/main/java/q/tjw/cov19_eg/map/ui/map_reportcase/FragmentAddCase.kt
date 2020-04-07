@@ -10,10 +10,12 @@ import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapAddCaseBinding
 import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
+import q.tjw.cov19_eg.map.core.extentions.Navigation
 import q.tjw.cov19_eg.map.core.extentions.close
 import q.tjw.cov19_eg.map.core.extentions.observe
 import q.tjw.cov19_eg.map.core.extentions.viewModel
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
 import javax.inject.Inject
 class FragmentAddCase : BaseFragment() {
     companion object {
@@ -28,7 +30,10 @@ class FragmentAddCase : BaseFragment() {
         super.onCreate(savedInstanceState)
         CO19Application.appComponent.inject(this)
         viewModel = viewModel(factory) {
-         observe(mCaseResult){result-> result?.let {close()} }
+         observe(mCaseResult){result-> result?.let {
+             activity?.finish()
+         }
+         }
         }
     }
 

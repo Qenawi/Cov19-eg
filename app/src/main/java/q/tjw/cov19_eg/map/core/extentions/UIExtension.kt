@@ -23,7 +23,10 @@ import com.google.android.material.chip.Chip
 import com.google.type.LatLng
 import kotlinx.coroutines.*
 import q.tjw.cov19_eg.R
+import q.tjw.cov19_eg.map.core.data.emptyS
 import q.tjw.cov19_eg.map.core.extentions.InputType.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -119,9 +122,21 @@ fun View.mProgress(boolean: Boolean?) {
     mVisible(boolean)
 }
 
-@BindingAdapter("safe_text")
-fun TextView.mText(any: Any?) = any?.let { sText -> text = sText.toString() }
+@BindingAdapter(value =  ["safe_text","decimal_format"],requireAll = false)
+fun TextView.mText(any: Any?,boolean: Boolean?) = any?.let {
+        sText ->
+       text = if(boolean==true)(sText as Int).safeDecimalFormat() else sText.toString()
+}
 
+fun Int?.safeDecimalFormat():String{
+    val df = DecimalFormat("#,###")
+    df.roundingMode = RoundingMode.CEILING
+   return  this?.let {num->
+
+     val ret=  df.format(num)
+   ret
+   }?: emptyS
+}
 @BindingAdapter(
     value = ["chip_date_activation",
         "chip_location_activation"],

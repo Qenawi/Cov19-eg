@@ -13,10 +13,10 @@ import q.tjw.cov19_eg.map.ui.profile.ProfileFragment
 import q.tjw.cov19_eg.map.ui.status.FragmentWorldStatus
 
 class MainMapActivity : BaseActivity<ActivityMapBinding>() {
-    private fun homeFragment() = MapFragment.newInstance()
-    private fun profileFragment() = ProfileFragment.newInstance()
-    private fun statusFragment() = FragmentWorldStatus.newInstance()
-    private val currentFrag =
+    private val homeFragment = MapFragment.newInstance()
+    private val profileFragment = ProfileFragment.newInstance()
+    private val statusFragment = FragmentWorldStatus.newInstance()
+    val currentFrag =
         MutableLiveData<Navigation>().apply { this.value = Navigation.HomeMap }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +28,9 @@ class MainMapActivity : BaseActivity<ActivityMapBinding>() {
         navigation.setOnNavigationItemSelectedListener { b ->
             val fragment: BaseFragment? = when (b.itemId.idToNavigation()) {
                 currentFrag.value -> null
-                Navigation.HomeMap -> homeFragment()
-                Navigation.Status -> statusFragment()
-                Navigation.Profile -> profileFragment()
+                Navigation.HomeMap -> homeFragment
+                Navigation.Status -> statusFragment
+                Navigation.Profile -> profileFragment
             }
             delay250{fragment?.let {f-> mAddFragment(this@MainMapActivity){f}}}
             return@setOnNavigationItemSelectedListener  true

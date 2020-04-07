@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:background="@drawable/black_green_gradient"
+            android:background="@drawable/black_green_gradient_toolbar"
             android:layout_height="56dp">
         <carbon.widget.TextView
                 android:id="@+id/l_title"

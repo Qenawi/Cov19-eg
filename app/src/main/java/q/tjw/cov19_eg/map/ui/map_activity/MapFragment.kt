@@ -1,4 +1,5 @@
 package q.tjw.cov19_eg.map.ui.map_activity
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +15,18 @@ import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.extentions.*
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
+import q.tjw.cov19_eg.map.ui.map_reportcase.ActivityAddCase
 import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
+
 class MapFragment : BaseFragment(), OnMapReadyCallback {
     companion object {
         fun newInstance() = MapFragment()
     }
+
     private lateinit var map: GoogleMap
     private lateinit var viewModel: MapViewModel
     @Inject
@@ -34,18 +39,20 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         viewModel = viewModel(factory) {
             observe(mMapData) { covCases ->
                 covCases?.let { case ->
-map.mMapAddMarkers(case)
+                    map.mMapAddMarkers(case)
                 }
             }
         }
         viewModel.getLocations()
     }
+
     override fun onMapReady(p0: GoogleMap?) {
         p0?.let {
             activity?.setUpMap(p0)
             map = p0
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,9 +72,11 @@ map.mMapAddMarkers(case)
         }
     }
 
-    private fun addCase() = mAddFragment(activity) { FragmentAddCase.newInstance() }
+    private fun addCase() = mLaunchActivity<ActivityAddCase>(contex = context)
     override fun onResume() {
         super.onResume()
+        (activity as MainMapActivity?)?.currentFrag?.postValue(Navigation.HomeMap)
+
         (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_worldMap))
     }
 }

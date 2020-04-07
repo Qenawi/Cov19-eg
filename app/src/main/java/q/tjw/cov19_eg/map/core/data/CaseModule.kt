@@ -20,7 +20,7 @@ private const val isConfirmed = "verified"
 private const val lat = "locationLat"
 private const val lng = "locationLng"
 private const val userId = "uId"
-private const val caseGender = "Gender"
+private const val caseGender = "gender"
 private const val caseAge = "Age"
 
 
@@ -34,7 +34,7 @@ data class CaseModule(
     @SerializedName(lng) val locationLng: String?,
     @SerializedName(userId) val uId: String,
     @SerializedName(caseAge ) val Age:Int?
-    ,@SerializedName(caseGender) val Gender:String?
+    ,@SerializedName(caseGender) val gender:String?
 ) : Parcelable {
     constructor() : this(emptyS, emptyS, emptyS, emptyB, emptyS, emptyS, emptyS, emptyI, emptyS)
 }

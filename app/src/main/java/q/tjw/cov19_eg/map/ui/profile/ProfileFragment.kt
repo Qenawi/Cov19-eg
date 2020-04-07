@@ -17,10 +17,12 @@ import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.data.CaseModule
 import q.tjw.cov19_eg.map.core.data.mToCaseModule
+import q.tjw.cov19_eg.map.core.extentions.Navigation
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
 import q.tjw.cov19_eg.map.core.extentions.myToast
 import q.tjw.cov19_eg.map.core.extentions.showToast
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
 import q.tjw.cov19_eg.model.mToUserModule
 import javax.inject.Inject
 
@@ -37,6 +39,7 @@ class ProfileFragment : BaseFragment() {
     }
     override fun onResume() {
         super.onResume()
+        (activity as MainMapActivity?)?.currentFrag?.postValue(Navigation.Profile)
         (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_UserProfile))
     }
 

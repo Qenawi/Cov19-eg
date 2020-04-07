@@ -11,7 +11,6 @@ import q.tjw.cov19_eg.map.core.data.CaseModule
 
 class ProfileCasesAdapter() : RecyclerView.Adapter<ProfileCasesAdapter.ViewHolder>() {
     private val data = ArrayList<CaseModule>()
-
     class ViewHolder(val binding: MapCaseItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CaseModule?) {
             item?.let { case -> binding.caseModule = case }

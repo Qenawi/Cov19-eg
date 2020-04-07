@@ -12,7 +12,9 @@ import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.data.WorldLifeStateModule
 import q.tjw.cov19_eg.map.core.data.mToWorldLifeStateModule
+import q.tjw.cov19_eg.map.core.extentions.Navigation
 import q.tjw.cov19_eg.map.di.app.CO19Application
+import q.tjw.cov19_eg.map.ui.MainMapActivity
 import javax.inject.Inject
 
 class FragmentWorldStatus : BaseFragment() {
@@ -51,6 +53,7 @@ class FragmentWorldStatus : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
+        (activity as MainMapActivity?)?.currentFrag?.postValue(Navigation.Status)
         (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_worldStatus))
     }
     //todo 7amda Fix Get State

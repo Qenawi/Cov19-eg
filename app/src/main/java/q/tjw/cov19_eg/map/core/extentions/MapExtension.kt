@@ -1,15 +1,16 @@
 package q.tjw.cov19_eg.map.core.extentions
+
 import android.app.Activity
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Icon
-import android.util.Log
+import android.graphics.drawable.BitmapDrawable
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.map.core.data.CaseModule
-import q.tjw.cov19_eg.map.ui.map_activity.debugPrint
-import q.tjw.cov19_eg.map.ui.map_activity.printError
+
 
 fun Activity?.setUpMap(m:GoogleMap?)=this?.run {
  m?.let {p0->
@@ -23,7 +24,12 @@ fun GoogleMap?.mMapAddMarkers(data:ArrayList<CaseModule>){
  for(i in data)
  {
 //todo fix null issue
-     this?.addMarker(MarkerOptions().position(LatLng(i.locationLat?.toDouble()?:0.0,i.locationLng?.toDouble()?:0.0)).title(i.address))
+     this?.addMarker(MarkerOptions()
+         .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_green_pin))
+         .position(LatLng(i.locationLat.safeDouble()?:0.0,i.locationLng.safeDouble()?:0.0)).title(i.title))
  }
 
 }
+fun String?.safeDouble():Double?=try{
+this?.toDouble()
+}catch (e:Exception){null}
