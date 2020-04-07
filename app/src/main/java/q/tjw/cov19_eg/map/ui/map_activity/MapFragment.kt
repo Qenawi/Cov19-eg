@@ -1,5 +1,6 @@
 package q.tjw.cov19_eg.map.ui.map_activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,9 @@ import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.extentions.*
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
+import q.tjw.cov19_eg.utilities.SharedPreference
+import q.tjw.cov19_eg.views.CheckActivity
+import q.tjw.cov19_eg.views.RegisterActivity
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
@@ -24,6 +28,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         fun newInstance() = MapFragment()
     }
 
+    private lateinit var intnt: Intent
     private lateinit var map: GoogleMap
     private lateinit var viewModel: MapViewModel
     @Inject
@@ -67,6 +72,18 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         l_addreport.setOnClickListener {
             delay250 { a -> addCase() }
+        }
+        l_updateStatus.setOnClickListener{
+            val sharedPreference: SharedPreference = SharedPreference(CO19Application.context!!)
+            if (sharedPreference.getIsLogin()!!) {
+                startActivity(Intent(activity, CheckActivity::class.java))
+            }
+            else{
+                intnt = Intent(activity, RegisterActivity::class.java)
+                intnt.putExtra("screen", "check")
+                startActivity(intnt)
+
+            }
         }
     }
 

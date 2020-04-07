@@ -18,6 +18,11 @@
 
         <activity android:name=".views.HomeActivity"/>
         <activity android:name=".views.CheckActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".views.RegisterActivity"
@@ -34,7 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".map.ui.map_activity.MainMapActivity" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/mapKey" />
