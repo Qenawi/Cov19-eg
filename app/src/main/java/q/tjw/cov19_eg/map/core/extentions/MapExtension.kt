@@ -17,8 +17,8 @@ fun Activity?.setUpMap(m:GoogleMap?)=this?.run {
       p0.setMinZoomPreference(4f)
       p0.setMaxZoomPreference(15f)
       p0.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_dark_style))
-     p0.animateCamera(CameraUpdateFactory.newLatLng(LatLng( 30.044281,31.340002)))
-  }
+     p0.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng( 26.820553, 30.802498), 6f))
+ }
 }
 fun GoogleMap?.mMapAddMarkers(data:ArrayList<CaseModule>){
  for(i in data)
