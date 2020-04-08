@@ -73,16 +73,24 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         l_addCase.setOnClickListener {
-            delay250 { a -> addCase() }
+            delay250 {a->
+                val sharedPreference = SharedPreference(CO19Application.context!!)
+                if(sharedPreference.getIsLogin()==true)
+                addCase()
+                else
+                {
+                    intnt = Intent(activity, RegisterActivity::class.java)
+                    startActivity(intnt)
+                }
+            }
         }
         l_updateProfile.setOnClickListener{
-            val sharedPreference: SharedPreference = SharedPreference(CO19Application.context!!)
+            val sharedPreference = SharedPreference(CO19Application.context!!)
             if (sharedPreference.getIsLogin()!!) {
                 startActivity(Intent(activity, CheckActivity::class.java))
             }
             else{
                 intnt = Intent(activity, RegisterActivity::class.java)
-                intnt.putExtra("screen", "check")
                 startActivity(intnt)
 
             }

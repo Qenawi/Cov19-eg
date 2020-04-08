@@ -10,7 +10,6 @@ import androidx.core.app.ActivityCompat
 import q.tjw.cov19_eg.map.ui.MainMapActivity
 
 class SplashActivity : AppCompatActivity() {
-
     val PERMISSION_ALL = 1
     private val permissions = arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION)
 

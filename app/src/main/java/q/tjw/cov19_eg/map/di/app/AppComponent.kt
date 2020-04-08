@@ -11,6 +11,7 @@ import q.tjw.cov19_eg.map.ui.map_reportcase.AddCaseViewModel
 import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
 import q.tjw.cov19_eg.map.ui.profile.ProfileFragment
 import q.tjw.cov19_eg.map.ui.status.FragmentWorldStatus
+import q.tjw.cov19_eg.views.CheckActivity
 import javax.inject.Singleton
 
 @Singleton
@@ -34,4 +35,5 @@ interface AppComponent {
     fun inject(addCaseViewModel: AddCaseViewModel)
     fun inject(fragmentWorldStatus: FragmentWorldStatus)
     fun inject(profileFragment: ProfileFragment)
+    fun inject(checkActivity: CheckActivity)
 }
