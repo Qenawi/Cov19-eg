@@ -1,5 +1,4 @@
 package q.tjw.cov19_eg
-
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager

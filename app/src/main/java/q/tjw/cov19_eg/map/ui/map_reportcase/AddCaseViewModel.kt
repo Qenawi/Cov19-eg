@@ -13,6 +13,7 @@ import q.tjw.cov19_eg.map.core.extentions.ViewValidation
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.di.features.LocationManger
+import q.tjw.cov19_eg.views.RegisterActivity
 import java.util.*
 import javax.inject.Inject
 
@@ -38,6 +39,8 @@ class AddCaseViewModel @Inject constructor(
     val caseAddress = MutableLiveData<String>().apply { this.value = emptyS }
     val caseName = MutableLiveData<String>().apply { this.value = emptyS }
     val caseConfirmed = MutableLiveData<Boolean>().apply { this.value = emptyB }
+    val caseGender = MutableLiveData<String>().apply { this.value =RegisterActivity.gender[1]}
+    val selectedArea=MutableLiveData<String>().apply { this.value=RegisterActivity.province[1] }
     private fun addCase(data: CaseModule) {
         mLoading.value = true
         useCase.reportCase(AddCaseUseCase.Params(data)) { result ->
@@ -62,10 +65,11 @@ class AddCaseViewModel @Inject constructor(
         if (useCase.validate(caseAddress.value, caseName.value))
             addCase(
                 CaseModule(
-                     "Cairo",
+                     selectedArea.value,
                     caseName.value ?: emptyS, mCaseDate.value ?: emptyS,
                     caseConfirmed.value ?: emptyB, mCaseLocation.value?.latitude.toString(),
-                    mCaseLocation.value?.longitude.toString(), getApplication<CO19Application>().getDeviceUniqueFootPrint(),caseAddress.value?.toInt()?:22,"male",50
+                    mCaseLocation.value?.longitude.toString(), getApplication<CO19Application>().getDeviceUniqueFootPrint(),caseAddress.value?.toInt()?:22,caseGender.value,
+                    50
 
                 )
             )

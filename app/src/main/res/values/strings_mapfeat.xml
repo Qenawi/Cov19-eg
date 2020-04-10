@@ -6,33 +6,33 @@
     <string name="font_reg" translatable="false">fonts/cairo_light.ttf</string>
     <string name="mapKey" translatable="false">AIzaSyBfanKpNW1IUugDILknGRO0KO14YFm65UM</string>
     <string name="AppPrefs_MainKey" translatable="false">C19Key</string>
-    <string name="add_case">Add Case</string>
-    <string name="update_status">Update Status</string>
-    <string name="worldTotalCount">"Case Count "</string>
-    <string name="WorldWide">World State</string>
-    <string name="total_recovered">Recovered</string>
-    <string name="death">Death</string>
-    <string name="egypt_count">Egypt State</string>
-    <string name="case_address">Case Address</string>
-    <string name="case_name">Case Name</string>
-    <string name="send_report">"Add Case "</string>
+    <string name="add_case">إضافة حالة</string>
+    <string name="update_status">افحص حالتك</string>
+    <string name="worldTotalCount">الإصابات</string>
+    <string name="WorldWide">إحصائيات العالم</string>
+    <string name="total_recovered">المتعافين</string>
+    <string name="death">الوفيات</string>
+    <string name="egypt_count">إحصائيات مصر</string>
+    <string name="case_address">عنوان الحالة</string>
+    <string name="case_name">اسم الحالة</string>
+    <string name="send_report">اضافة حالة</string>
     <string name="add_case_use_policy">Pleas Don\'t Add Random Cases , We Do Our Best To Provide OutBreak Control
     Mechanism To Help You And Others ,Thanks.
     </string>
-    <string name="case_location">Case Location</string>
-    <string name="add_case_date">Case Date</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
-    <string name="case_gender">Gender</string>
-    <string name="case_age">Case Approximate Age</string>
-    <string name="area">Area</string>
-    <string name="l_worldStatus">WorldStatus</string>
-    <string name="l_UserProfile">Profile</string>
-    <string name="add_case_check_box_msg">Case 100% Positive</string>
-    <string name="l_worldMap">Map</string>
-    <string name="l_stateLastUpdateIn">Updated every</string>
-    <string name="l_UserCity">City</string>
-    <string name="l_UserPhoneNumber">Phone</string>
-    <string name="Verified" >Verified</string>
-    <string name="Unverified" >Unverified</string>
+    <string name="case_location">الموقع الجغرافي</string>
+    <string name="add_case_date">تاريخ الاصابة</string>
+    <string name="male">ذكر</string>
+    <string name="female">انثى</string>
+    <string name="case_gender">النوع</string>
+    <string name="case_age">السن</string>
+    <string name="area">المدينة</string>
+    <string name="l_worldStatus">الإحصائيات</string>
+    <string name="l_UserProfile">الصفحة الشخصية</string>
+    <string name="add_case_check_box_msg">تم توثيق من وزارة الصحة ؟</string>
+    <string name="l_worldMap">الخريطة</string>
+    <string name="l_stateLastUpdateIn">يتم التحديث كل </string>
+    <string name="l_UserCity">المدينة</string>
+    <string name="l_UserPhoneNumber">رقم الهاتف</string>
+    <string name="Verified" >مؤكدة</string>
+    <string name="Unverified" >اشتباه</string>
 </resources>

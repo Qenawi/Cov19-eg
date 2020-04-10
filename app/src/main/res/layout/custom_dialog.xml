@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="250dp"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:paddingTop="13dp"
     android:layout_gravity="center"
@@ -13,19 +14,21 @@
     android:paddingBottom="8dp"
     android:background="@drawable/round_view_border">
 
-    <TextView
+    <carbon.widget.TextView
+        style="@style/TextViewStyle_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:text="jhdsbshadbja"
+        tools:text="jhdsbshadbja"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/dark"
         />
 
-    <TextView
+    <carbon.widget.TextView
+        style="@style/TextViewStyle_mid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/percentage"
@@ -33,27 +36,29 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/title"
         android:gravity="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/dark"
         />
 
 
 
-    <Button
+    <carbon.widget.Button
+        custom:carbon_fontPath="@string/font_bold"
         android:id="@+id/ok"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        custom:carbon_cornerRadius="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/round_view"
         android:onClick="check"
         android:text="@string/ok"
+        custom:carbon_rippleColor="@color/carbon_black"
         android:textColor="@color/wit"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         />
 
 

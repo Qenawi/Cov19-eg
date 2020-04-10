@@ -159,8 +159,8 @@ class CheckActivity : AppCompatActivity() {
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         // set the custom dialog components - text, image and button
         val ok: Button = dialog.findViewById(R.id.ok)
-        val title: TextView = dialog.findViewById(R.id.title)
-        val percentageView: TextView = dialog.findViewById(R.id.percentage)
+        val title: carbon.widget.TextView = dialog.findViewById(R.id.title)
+        val percentageView: carbon.widget.TextView = dialog.findViewById(R.id.percentage)
         title.text = result
         percentageView.text = if (travelOnly == 1 || cont == 0) {
             ""

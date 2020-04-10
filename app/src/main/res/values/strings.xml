@@ -30,6 +30,7 @@
     <string name="register_failed">فشل التسجيل حاول مرة اخرى</string>
     <string name="select_symptoms">من فضلك اختر الاعراض التي تشعر بها</string>
     <string name="infection_percentage">نسبة الاصابة : %1$s </string>
-    <string name="yourCases">Your Cases</string>
-
+    <string name="yourCases">الحالات المضافه</string>
+    <string name="stay_safe">Stay Safe</string>
+    <string name="stay_home">Stay Home</string>
 </resources>
