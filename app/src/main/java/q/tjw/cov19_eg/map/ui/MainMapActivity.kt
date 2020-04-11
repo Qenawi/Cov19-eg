@@ -32,7 +32,7 @@ class MainMapActivity : BaseActivity<ActivityMapBinding>() {
                 Navigation.Status -> statusFragment
                 Navigation.Profile -> profileFragment
             }
-            delay250{fragment?.let {f-> mAddFragment(this@MainMapActivity){f}}}
+            delay250{fragment?.let {f-> mAddFragment(false,this@MainMapActivity){f}}}
             return@setOnNavigationItemSelectedListener  true
         }
 

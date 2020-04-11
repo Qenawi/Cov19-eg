@@ -16,6 +16,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.iid.FirebaseInstanceId
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.map.core.base.BaseActivity
+import q.tjw.cov19_eg.utilities.SharedPreference
 import java.lang.Exception
 
 
@@ -41,17 +42,18 @@ inline fun <reified T : Activity> mLaunchActivityForResult(contex: Context?, res
     }
 }
 
-inline fun <reified T : Fragment> mAddFragment(activity: Activity?, newInstance: () -> T) {
+inline fun <reified T : Fragment> mAddFragment(addToBackStack: Boolean?=null,activity: Activity?, newInstance: () -> T) {
     activity?.let { act ->
-        (act as BaseActivity<*>).addFragment(newInstance())
+        (act as BaseActivity<*>).addFragment(newInstance(),addToBackStack)
     }
 
 }
 
+
 inline fun <reified T : Application> AndroidViewModel.getString(int: Int): String =
     this.getApplication<T>().getString(int)
-fun Context?.get_prefs(): SharedPreferences? {
-    return this?.applicationContext?.getSharedPreferences(getString(R.string.AppPrefs_MainKey), 0)
+fun Context?.getPrefs(): SharedPreference? {
+    return this?.let { ctx-> SharedPreference(ctx) }
 }
 
 

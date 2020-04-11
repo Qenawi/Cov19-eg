@@ -12,11 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import q.tjw.cov19_eg.map.core.base.BaseFragment
 
-inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =
-    beginTransaction().addToBackStack(null).func().commit()
-
-
-
+inline fun FragmentManager.inTransactionWithBackStack(func: FragmentTransaction.() -> FragmentTransaction) = beginTransaction().addToBackStack(null).func().commit()
+inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) = beginTransaction().func().commit()
 inline fun <reified T: ViewModel> Fragment.viewModel(factory: ViewModelProvider.Factory, body: T.() -> Unit): T
 {
     val vm = ViewModelProviders.of(this, factory)[T::class.java]

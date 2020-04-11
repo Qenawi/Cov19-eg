@@ -50,7 +50,8 @@ dependencies {
     implementation(Libraries.Google.playServiceMap)
     implementation(Libraries.FireBase.fireStore)
     implementation(Libraries.FireBase.messeging)
-    implementation(Libraries.carbon)
+    implementation(Libraries.Google.easyPermission)
+    api(Libraries.carbon)
     implementation(Libraries.Google.material)
     implementation(Libraries.Libs.slidingRootNav)
 }

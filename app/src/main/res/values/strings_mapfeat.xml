@@ -19,6 +19,9 @@
     <string name="add_case_use_policy">Pleas Don\'t Add Random Cases , We Do Our Best To Provide OutBreak Control
     Mechanism To Help You And Others ,Thanks.
     </string>
+
+
+    <string name="default_notification_channel_id">22</string>
     <string name="case_location">الموقع الجغرافي</string>
     <string name="add_case_date">تاريخ الاصابة</string>
     <string name="male">ذكر</string>
@@ -35,4 +38,6 @@
     <string name="l_UserPhoneNumber">رقم الهاتف</string>
     <string name="Verified" >مؤكدة</string>
     <string name="Unverified" >اشتباه</string>
+    <string name="l_loading">Loading pleas wait..</string>
+    <string name="yourCase">بياناتك</string>
 </resources>

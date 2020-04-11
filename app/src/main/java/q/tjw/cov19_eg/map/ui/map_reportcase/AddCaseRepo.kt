@@ -10,7 +10,9 @@ import q.tjw.cov19_eg.map.ui.map_activity.printError
 import javax.inject.Inject
 
 interface AddCaseRepo {
-    companion object {private const val CaseUrl = "caseReports"}
+    companion object { const val CaseUrl = "caseReports"
+    const val USER_ID="uid"
+    }
     fun reportCase(params: AddCaseUseCase.Params, call: (Either<Failure, Boolean>) -> Unit = {})
     class NetWork @Inject constructor(
         private val fStore: FirebaseFirestore,

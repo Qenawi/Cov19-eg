@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <LinearLayout
+    <carbon.widget.LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -14,28 +14,28 @@
     android:layout_height="56dp"
    layout="@layout/my_tool_bar"
     />
-        <ScrollView
+        <carbon.widget.ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/black_gradient"
             tools:context=".views.RegisterActivity">
 
-            <LinearLayout
+            <carbon.widget.LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
 
-                <carbon.widget.InputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     app:carbon_labelFontPath="@string/font_bold"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:id="@+id/name_layout"
                     app:carbon_label="@string/name"
                     app:carbon_labelStyle="persistent">
@@ -46,25 +46,28 @@
                         android:padding="5dp"
                         app:carbon_minCharacters="5"
                         app:carbon_tint="@null"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
                         android:backgroundTint="@null"
                         app:carbon_required="true"
-                        android:layout_margin="10dp"
                         android:singleLine="true"
                         android:inputType="text"
                         android:id="@+id/name"
                         android:background="@color/carbon_white"
                         app:carbon_backgroundTint="@null"
                         app:carbon_cornerRadius="7dp" />
-                </carbon.widget.InputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-                <carbon.widget.InputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     app:carbon_labelFontPath="@string/font_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/phone_layout"
@@ -80,21 +83,24 @@
                         android:padding="5dp"
                         app:carbon_backgroundTint="@null"
                         app:carbon_required="true"
-                        android:layout_margin="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
                         android:inputType="number"
                         android:singleLine="true"
                         android:id="@+id/phone"
                         android:background="@color/carbon_white"
                         app:carbon_cornerRadius="7dp" />
-                </carbon.widget.InputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <carbon.widget.InputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     app:carbon_labelFontPath="@string/font_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/age_layout"
@@ -106,18 +112,21 @@
                         android:layout_height="40dp"
                         android:textColor="@color/black"
                         android:padding="5dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
                         app:carbon_minCharacters="2"
                         app:carbon_tint="@null"
                         app:carbon_backgroundTint="@null"
                         android:backgroundTint="@null"
                         app:carbon_required="true"
-                        android:layout_margin="10dp"
                         android:inputType="number"
                         android:singleLine="true"
                         android:id="@+id/age"
                         android:background="@color/carbon_white"
                         app:carbon_cornerRadius="7dp" />
-                </carbon.widget.InputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <carbon.widget.DropDown
                     android:layout_width="match_parent"
@@ -126,8 +135,8 @@
                     app:carbon_fontPath="@string/font_mid"
                     app:carbon_cornerRadius="10dp"
                     app:carbon_backgroundTint="@null"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="60dp"
                     android:textColor="@color/carbon_black"
                     android:background="@color/carbon_white"
                     android:id="@+id/gender_spinner"/>
@@ -136,14 +145,14 @@
                     app:carbon_fontPath="@string/font_mid"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="40dp"
                     app:carbon_tint="@null"
                     android:textColor="@color/carbon_black"
                     android:background="@color/carbon_white"
                     app:carbon_cornerRadius="10dp"
                     app:carbon_backgroundTint="@null"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="50dp"
                     android:id="@+id/province_spinner"/>
 
 
@@ -152,22 +161,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginBottom="32dp"
                     android:onClick="register"
                     android:background="@drawable/co19_button_gradient"
                     android:text="@string/register"
                     android:textSize="22sp"
+                    android:textColor="@color/carbon_white"
                     app:carbon_cornerRadius="10dp"
                     app:carbon_rippleColor="@color/carbon_white" />
 
 
 
 
-            </LinearLayout>
+            </carbon.widget.LinearLayout>
 
-        </ScrollView>
+        </carbon.widget.ScrollView>
 
-    </LinearLayout>
+    </carbon.widget.LinearLayout>
 </layout>

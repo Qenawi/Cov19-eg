@@ -31,10 +31,16 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
     }
 
-    fun addFragment(fragment: Fragment) {
-        addFragmentHelper(fragment)
+    fun addFragment(fragment: Fragment,addToStack: Boolean?=null) {
+        if(addToStack==true)
+        addFragmentHelperWithBackStack(fragment)
+        else addFragmentHelper(fragment)
     }
-
+    private fun addFragmentHelperWithBackStack(fragment: Fragment) = supportFragmentManager.inTransaction {
+        replace(
+            fragHolderId, fragment
+        )
+    }
     private fun addFragmentHelper(fragment: Fragment) = supportFragmentManager.inTransaction {
         replace(
             fragHolderId, fragment
@@ -45,12 +51,9 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract fun fragment(): BaseFragment
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount > 1) {
-            (supportFragmentManager.findFragmentById(
-                fragHolderId
-            ) as BaseFragment).onBackPressed()
-
+            (supportFragmentManager.findFragmentById(fragHolderId) as BaseFragment).onBackPressed()
             super.onBackPressed()
-        } else {
+            } else {
             finish()
         }
 

@@ -2,6 +2,7 @@ package q.tjw.cov19_eg.utilities
 
 import android.content.Context
 import android.content.SharedPreferences
+import javax.inject.Singleton
 
 class SharedPreference(val context: Context) {
     private val MY_PREFS = "MY_PREFS"

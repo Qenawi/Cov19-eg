@@ -27,6 +27,7 @@ object Libraries {
 
     object Google {
         private const val playServiceVersion = "17.0.0"
+        const val easyPermission="pub.devrel:easypermissions:3.0.0"
         const val material = "com.google.android.material:material:1.1.0"
         const val firebaseCore = "com.google.firebase:firebase-core:17.2.2"
         const val crashlytics = "com.crashlytics.sdk.android:crashlytics:2.10.1"

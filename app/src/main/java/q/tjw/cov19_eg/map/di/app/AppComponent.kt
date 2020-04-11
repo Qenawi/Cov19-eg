@@ -4,6 +4,7 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import q.tjw.cov19_eg.SplashActivity
 import q.tjw.cov19_eg.map.di.features.MainFeature
 import q.tjw.cov19_eg.map.ui.MainMapActivity
 import q.tjw.cov19_eg.map.ui.map_activity.MapFragment
@@ -36,4 +37,5 @@ interface AppComponent {
     fun inject(fragmentWorldStatus: FragmentWorldStatus)
     fun inject(profileFragment: ProfileFragment)
     fun inject(checkActivity: CheckActivity)
+    fun inject(splashActivity: SplashActivity)
 }

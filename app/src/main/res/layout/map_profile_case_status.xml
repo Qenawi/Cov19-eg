@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="caseModule"
+            type="androidx.lifecycle.MutableLiveData&lt;q.tjw.cov19_eg.map.core.data.CaseModule&gt;" />
+    </data>
+
+    <carbon.widget.ConstraintLayout
+        android:alpha="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/orange_gradient_transparent"
+        android:clickable="true"
+        android:elevation="2dp"
+        android:focusable="true"
+        app:carbon_cornerRadius="12sp"
+        app:carbon_rippleColor="@color/app_green"
+        app:carbon_rippleRadius="5dp"
+        app:carbon_rippleStyle="borderless">
+
+
+        <carbon.widget.TextView
+            android:id="@+id/textView28"
+            style="@style/TextViewStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:textColor="@color/carbon_white"
+            android:textSize="20sp"
+            app:case_verification="@{caseModule.verified}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:text="Verified" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/carbon_white"
+            android:textSize="16sp"
+            style="@style/TextViewStyle_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView28"
+            app:layout_constraintVertical_bias="0.275"
+            app:milliSecondData="@{caseModule.time}"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView33"
+            style="@style/TextViewStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/yourCase"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            app:layout_constraintTop_toTopOf="parent" />
+    </carbon.widget.ConstraintLayout>
+</layout>

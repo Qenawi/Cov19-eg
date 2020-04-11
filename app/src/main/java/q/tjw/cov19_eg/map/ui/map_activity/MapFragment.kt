@@ -18,20 +18,14 @@ import q.tjw.cov19_eg.map.core.extentions.*
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.ui.MainMapActivity
 import q.tjw.cov19_eg.map.ui.map_reportcase.ActivityAddCase
-import q.tjw.cov19_eg.map.ui.map_reportcase.FragmentAddCase
 import q.tjw.cov19_eg.utilities.SharedPreference
 import q.tjw.cov19_eg.views.CheckActivity
 import q.tjw.cov19_eg.views.RegisterActivity
 import javax.inject.Inject
-import javax.inject.Named
-import javax.inject.Singleton
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
-    companion object {
-        fun newInstance() = MapFragment()
-    }
-
-    private lateinit var intnt: Intent
+    companion object { fun newInstance() = MapFragment() }
+    private lateinit var intent: Intent
     private lateinit var map: GoogleMap
     private lateinit var viewModel: MapViewModel
     @Inject
@@ -48,16 +42,15 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 }
             }
         }
-        viewModel.getLocations()
-    }
 
+    }
     override fun onMapReady(p0: GoogleMap?) {
         p0?.let {
             activity?.setUpMap(p0)
             map = p0
+            viewModel.getLocations()
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,7 +62,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         l_addCase.setOnClickListener {
@@ -79,8 +71,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 addCase()
                 else
                 {
-                    intnt = Intent(activity, RegisterActivity::class.java)
-                    startActivity(intnt)
+                    intent = Intent(activity, RegisterActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
@@ -90,18 +82,16 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 startActivity(Intent(activity, CheckActivity::class.java))
             }
             else{
-                intnt = Intent(activity, RegisterActivity::class.java)
-                startActivity(intnt)
+                intent = Intent(activity, RegisterActivity::class.java)
+                startActivity(intent)
 
             }
         }
     }
-
     private fun addCase() = mLaunchActivity<ActivityAddCase>(contex = context)
     override fun onResume() {
         super.onResume()
         (activity as MainMapActivity?)?.currentFrag?.postValue(Navigation.HomeMap)
-
         (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_worldMap))
     }
 }

@@ -1,73 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <carbon.widget.ImageView
-        android:id="@+id/imageView4"
+    <data>
+
+        <variable
+            name="progress"
+            type="androidx.lifecycle.MutableLiveData&lt;Boolean&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/roxane_roth_jq_qmktbkhg_unsplash" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:alpha="0.8"
-        android:background="@drawable/black_gradient_transparent"
-        android:layout_height="match_parent"/>
-
-    <carbon.widget.ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="25dp"
-        android:src="@mipmap/ic_launcher"
-        app:carbon_cornerRadius="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView30"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
+        tools:context=".SplashActivity">
 
 
-    <carbon.widget.TextView
-        android:id="@+id/textView30"
-        style="@style/TextViewStyle_bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stay_home"
-        android:textColor="@color/app_green"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView31"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
-    <carbon.widget.TextView
-        android:id="@+id/textView31"
-        style="@style/TextViewStyle_bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="@string/stay_safe"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <carbon.widget.ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/roxane_roth_jq_qmktbkhg_unsplash" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:background="@drawable/black_gradient_transparent" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+
+        <carbon.widget.ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="25dp"
+            android:src="@mipmap/ic_launcher"
+            app:carbon_cornerRadius="60dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96" />
+
+
+        <carbon.widget.TextView
+            android:id="@+id/textView30"
+            style="@style/TextViewStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stay_home"
+            android:textColor="@color/app_green"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView31"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView31"
+            style="@style/TextViewStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@string/stay_safe"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ProgressBar
+            android:id="@+id/l_progress_bar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:visibility="invisible"
+            android:layout_marginTop="16dp"
+            android:alpha="0.7"
+            app:layout_constraintBottom_toTopOf="@+id/textView32"
+            app:layout_constraintEnd_toEndOf="@+id/textView32"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:progress_view="@{progress}" />
+        <carbon.widget.TextView
+            android:id="@+id/textView32"
+            android:visibility="invisible"
+            android:alpha="0.7"
+            app:progress_view="@{progress}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/l_loading"
+            android:textColor="@color/carbon_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

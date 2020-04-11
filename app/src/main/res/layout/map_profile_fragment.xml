@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-       <variable
-           name="user"
-           type="androidx.lifecycle.MutableLiveData&lt;q.tjw.cov19_eg.model.User&gt;" />
+
+        <variable
+            name="user"
+            type="androidx.lifecycle.MutableLiveData&lt;q.tjw.cov19_eg.model.User&gt;" />
+
+        <variable
+            name="caseCount"
+            type="androidx.lifecycle.MutableLiveData&lt;Integer&gt;" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,13 +30,33 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/black_gradient_transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        </FrameLayout>
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/map_profile_case_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView21"
+            app:layout_constraintVertical_bias="0.0" />
 
         <carbon.widget.ImageView
             android:id="@+id/imageView3"
@@ -46,14 +72,14 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView16"
+            style="@style/TextViewStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:textSize="20sp"
-            app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,18 +90,18 @@
 
         <carbon.widget.TextView
             android:id="@+id/textView17"
+            style="@style/TextViewStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/case_age"
             android:textSize="16sp"
-            app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView16"
             app:layout_constraintVertical_bias="0.0" />
@@ -89,9 +115,9 @@
             android:textSize="16sp"
             app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView17"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintEnd_toStartOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView17"
             app:safe_text="@{user.age}" />
 
@@ -100,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:text="@string/yourCases"
@@ -109,21 +135,22 @@
             app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/include2"
             app:layout_constraintVertical_bias="0.0" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/l_recycler"
             android:layout_width="0dp"
-            android:paddingBottom="50dp"
             android:layout_height="0dp"
             android:layout_margin="10dp"
+            android:paddingBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/l_UserCases" />
+            app:layout_constraintTop_toBottomOf="@id/l_UserCases"
+            tools:listitem="@layout/map_case_item" />
 
         <carbon.widget.TextView
             android:id="@+id/l_UserCity"
@@ -134,9 +161,9 @@
             android:textSize="16sp"
             app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintEnd_toEndOf="@+id/textView17"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -149,22 +176,23 @@
             android:text="@string/total_recovered"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/l_UserCity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/l_UserCity"
+            app:layout_constraintEnd_toStartOf="@+id/l_UserCity"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/l_UserCity"
             app:safe_text="@{user.province}" />
 
         <carbon.widget.TextView
             android:id="@+id/textView21"
+            style="@style/TextViewStyle_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/l_UserPhoneNumber"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/l_UserCity"
+            app:layout_constraintEnd_toEndOf="@+id/l_UserCity"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/l_UserCity"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -177,10 +205,24 @@
             android:textSize="16sp"
             app:carbon_fontPath="@string/font_bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView21"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintEnd_toStartOf="@+id/textView21"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView21"
             app:safe_text="@{user.phone}" />
+
+        <carbon.widget.TextView
+            android:id="@+id/textView34"
+            style="@style/TextViewStyle_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/l_UserCases"
+            app:layout_constraintEnd_toStartOf="@+id/l_UserCases"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout"
+            app:layout_constraintTop_toTopOf="@+id/l_UserCases"
+            app:safe_text="@{caseCount}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
