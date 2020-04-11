@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cov19-eg</string>
     <string name="name">الاسم</string>
@@ -31,6 +32,6 @@
     <string name="select_symptoms">من فضلك اختر الاعراض التي تشعر بها</string>
     <string name="infection_percentage">نسبة الاصابة : %1$s </string>
     <string name="yourCases">Your Cases</string>
-    <string name="channel_title">awareness</string>
+    <string name="channel_title">توعية</string>
 
 </resources>
