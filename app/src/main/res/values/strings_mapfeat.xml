@@ -34,5 +34,4 @@
     <string name="l_UserCity">المدينة</string>
     <string name="l_UserPhoneNumber">رقم الهاتف</string>
     <string name="Verified" >مؤكدة</string>
-    <string name="Unverified" >اشتباه</string>
-</resources>
+    <string name="Unverified" >اشتباه</string></resources>
