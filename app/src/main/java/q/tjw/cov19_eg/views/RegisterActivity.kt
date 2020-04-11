@@ -11,8 +11,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import carbon.widget.DropDown
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.map_add_case.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.ActivityRegisterBinding
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
@@ -24,19 +27,22 @@ import q.tjw.cov19_eg.utilities.Validation
 
 
 class RegisterActivity : AppCompatActivity() {
-
+companion object{
+    val province = arrayListOf<String>("المحافظة", "القاهرة", "الجيزة", "القليوبية", "الإسكندرية", "البحيرة", "مطروح", "الدقهلية", "كفر الشيخ", "الغربية",
+        "المنوفية", "دمياط", "بورسعيد", "الإسماعيلية", "السويس", "الشرقية", "شمال سيناء", "جنوب سيناء", "بني سويف", "المنيا", "الفيوم", "أسيوط",
+        "الوادي الجديد", "سوهاج", "قنا", "الأقصر", "أسوان", "البحر الأحمر")
+    val gender = listOf("النوع", "ذكر", "أنثى")
+}
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var sharedPreference: SharedPreference
     private var provinceAdapter: ArrayAdapter<String>? = null
     private var genderAdapter: ArrayAdapter<String>? = null
     private lateinit var user: User
     private var dialog: ProgressDialog? = null
-    private val province = listOf("المحافظة", "القاهرة", "الجيزة", "القليوبية", "الإسكندرية", "البحيرة", "مطروح", "الدقهلية", "كفر الشيخ", "الغربية",
-        "المنوفية", "دمياط", "بورسعيد", "الإسماعيلية", "السويس", "الشرقية", "شمال سيناء", "جنوب سيناء", "بني سويف", "المنيا", "الفيوم", "أسيوط",
-        "الوادي الجديد", "سوهاج", "قنا", "الأقصر", "أسوان", "البحر الأحمر")
- private   val toolbarTitle = MutableLiveData<String>()
+
+   private   val toolbarTitle = MutableLiveData<String>()
     private  val callBack = MutableLiveData<Boolean>()
-    private val gender = listOf("النوع", "ذكر", "أنثى")
+
     private lateinit var db: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +65,8 @@ class RegisterActivity : AppCompatActivity() {
         genderAdapter = ArrayAdapter<String>(this,
             R.layout.spinner_selected_item,
             R.id.item, gender)
-        binding.provinceSpinner.adapter = provinceAdapter
-        binding.genderSpinner.adapter = genderAdapter
+        (province_spinner as DropDown<String>).setItems(province)
+        (gender_spinner as DropDown<String>).setItems(gender)
         observe(callBack){a-> if (a==true) onBackPressed()}
 
     }
@@ -70,16 +76,16 @@ class RegisterActivity : AppCompatActivity() {
         var valid: String = Validation.registerValidation(
             binding.phone.text.toString(),
             binding.name.text.toString(),
-            binding.provinceSpinner.selectedItemPosition,
+            (province_spinner as DropDown<String>).selectedIndex,
             binding.age.text.toString(),
-            binding.genderSpinner.selectedItemPosition
+            (gender_spinner as DropDown<String>).selectedIndex
             )
         if (valid == "valid")
         {
             dialog?.show()
             user = User(binding.name.text.toString(),
-                binding.phone.text.toString(), province[binding.provinceSpinner.selectedItemPosition],
-                binding.age.text.toString(), gender[binding.genderSpinner.selectedItemPosition])
+                binding.phone.text.toString(),(province_spinner as DropDown<String>).selectedItem,
+                binding.age.text.toString(), (gender_spinner as DropDown<String>).selectedItem)
 
             db.collection("users").document(getDeviceUniqueFootPrint()).set(user)
                 .addOnSuccessListener {

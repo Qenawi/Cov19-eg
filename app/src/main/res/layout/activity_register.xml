@@ -29,6 +29,7 @@
 
                 <carbon.widget.InputLayout
                     android:layout_width="match_parent"
+                    app:carbon_labelFontPath="@string/font_bold"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
                     android:layout_marginStart="30dp"
@@ -43,17 +44,22 @@
                         android:layout_height="40dp"
                         android:textColor="@color/black"
                         android:padding="5dp"
+                        app:carbon_minCharacters="5"
+                        app:carbon_tint="@null"
+                        android:backgroundTint="@null"
                         app:carbon_required="true"
                         android:layout_margin="10dp"
                         android:singleLine="true"
-                        android:inputType="textMultiLine"
+                        android:inputType="text"
                         android:id="@+id/name"
                         android:background="@color/carbon_white"
-                        app:carbon_cornerRadius="5dp" />
+                        app:carbon_backgroundTint="@null"
+                        app:carbon_cornerRadius="7dp" />
                 </carbon.widget.InputLayout>
 
 
                 <carbon.widget.InputLayout
+                    app:carbon_labelFontPath="@string/font_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
@@ -67,18 +73,23 @@
                     <carbon.widget.EditText
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        app:carbon_tint="@null"
+                        app:carbon_minCharacters="5"
+                        android:backgroundTint="@null"
                         android:textColor="@color/black"
                         android:padding="5dp"
+                        app:carbon_backgroundTint="@null"
                         app:carbon_required="true"
                         android:layout_margin="10dp"
                         android:inputType="number"
                         android:singleLine="true"
                         android:id="@+id/phone"
                         android:background="@color/carbon_white"
-                        app:carbon_cornerRadius="5dp" />
+                        app:carbon_cornerRadius="7dp" />
                 </carbon.widget.InputLayout>
 
                 <carbon.widget.InputLayout
+                    app:carbon_labelFontPath="@string/font_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:carbon_labelTextSize="20sp"
@@ -95,27 +106,44 @@
                         android:layout_height="40dp"
                         android:textColor="@color/black"
                         android:padding="5dp"
+                        app:carbon_minCharacters="2"
+                        app:carbon_tint="@null"
+                        app:carbon_backgroundTint="@null"
+                        android:backgroundTint="@null"
                         app:carbon_required="true"
                         android:layout_margin="10dp"
                         android:inputType="number"
                         android:singleLine="true"
                         android:id="@+id/age"
                         android:background="@color/carbon_white"
-                        app:carbon_cornerRadius="5dp" />
+                        app:carbon_cornerRadius="7dp" />
                 </carbon.widget.InputLayout>
 
-                <Spinner
+                <carbon.widget.DropDown
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
+                    app:carbon_tint="@null"
+                    app:carbon_fontPath="@string/font_mid"
+                    app:carbon_cornerRadius="10dp"
+                    app:carbon_backgroundTint="@null"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="35dp"
+                    android:textColor="@color/carbon_black"
+                    android:background="@color/carbon_white"
                     android:id="@+id/gender_spinner"/>
 
-                <Spinner
+                <carbon.widget.DropDown
+                    app:carbon_fontPath="@string/font_mid"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    app:carbon_tint="@null"
+                    android:textColor="@color/carbon_black"
+                    android:background="@color/carbon_white"
+                    app:carbon_cornerRadius="10dp"
+                    app:carbon_backgroundTint="@null"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="35dp"
                     android:id="@+id/province_spinner"/>
 
 

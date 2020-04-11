@@ -10,12 +10,10 @@ import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapAddCaseBinding
 import q.tjw.cov19_eg.map.core.base.BaseActivity
 import q.tjw.cov19_eg.map.core.base.BaseFragment
-import q.tjw.cov19_eg.map.core.extentions.Navigation
-import q.tjw.cov19_eg.map.core.extentions.close
 import q.tjw.cov19_eg.map.core.extentions.observe
 import q.tjw.cov19_eg.map.core.extentions.viewModel
 import q.tjw.cov19_eg.map.di.app.CO19Application
-import q.tjw.cov19_eg.map.ui.MainMapActivity
+import q.tjw.cov19_eg.views.RegisterActivity
 import javax.inject.Inject
 class FragmentAddCase : BaseFragment() {
     companion object {
@@ -41,8 +39,11 @@ class FragmentAddCase : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (binding as MapAddCaseBinding).viewModel = viewModel
-        (dropDown as DropDown<String>).setItems(arrayListOf("cairo","giza","other"))
-
+        (dropDown as DropDown<String>).setItems(RegisterActivity.province)
+        (dropDown as DropDown<String>).setOnItemSelectedListener { item: String?, position: Int -> viewModel.selectedArea.postValue(item?:"") }
+        l_male.setOnCheckedChangeListener { buttonView, isChecked -> l_female.setChecked(!isChecked) }
+        l_female.setOnCheckedChangeListener { buttonView, isChecked ->l_male.setChecked(!isChecked)  }
+        checkBox.setOnCheckedChangeListener { buttonView, isChecked -> viewModel.caseConfirmed.postValue(isChecked) }
     }
 
     override fun onResume() {

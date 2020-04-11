@@ -20,16 +20,27 @@ fun Activity?.setUpMap(m:GoogleMap?)=this?.run {
      p0.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng( 26.820553, 30.802498), 6f))
  }
 }
-fun GoogleMap?.mMapAddMarkers(data:ArrayList<CaseModule>){
- for(i in data)
- {
-//todo fix null issue
-     this?.addMarker(MarkerOptions()
-         .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_green_pin))
-         .position(LatLng(i.locationLat.safeDouble()?:0.0,i.locationLng.safeDouble()?:0.0)).title(i.title))
- }
+
+fun GoogleMap?.mMapAddMarkers(data: ArrayList<CaseModule>) {
+    for (i in data) {
+        var drawId: Int = R.drawable.map_green_marker
+        if(i.verified) drawId=R.drawable.map_red_marker
+        this?.addMarker(
+            MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(drawId))
+                .position(
+                    LatLng(
+                        i.locationLat.safeDouble() ?: 0.0,
+                        i.locationLng.safeDouble() ?: 0.0
+                    )
+                ).title(i.title).snippet("${i.gender} - ${i.address}")
+        )
+    }
 
 }
-fun String?.safeDouble():Double?=try{
-this?.toDouble()
-}catch (e:Exception){null}
+
+fun String?.safeDouble(): Double? = try {
+    this?.toDouble()
+} catch (e: Exception) {
+    null
+}
