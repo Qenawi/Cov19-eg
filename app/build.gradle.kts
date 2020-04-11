@@ -53,5 +53,8 @@ dependencies {
     implementation(Libraries.carbon)
     implementation(Libraries.Google.material)
     implementation(Libraries.Libs.slidingRootNav)
+    implementation(Libraries.Retrofit.retrofit)
+    implementation(Libraries.Retrofit.gsonConverter)
+    implementation(Libraries.Retrofit.retrofit_rxjava_adapter)
 }
 

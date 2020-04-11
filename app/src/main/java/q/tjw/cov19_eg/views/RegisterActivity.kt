@@ -1,11 +1,7 @@
 package q.tjw.cov19_eg.views
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.provider.Settings.Secure
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -15,11 +11,9 @@ import carbon.widget.DropDown
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.map_add_case.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.ActivityRegisterBinding
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
-import q.tjw.cov19_eg.map.core.extentions.mVisible
 import q.tjw.cov19_eg.map.core.extentions.observe
 import q.tjw.cov19_eg.model.User
 import q.tjw.cov19_eg.utilities.SharedPreference

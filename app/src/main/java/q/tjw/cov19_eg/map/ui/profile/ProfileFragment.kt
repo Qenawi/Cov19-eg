@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import carbon.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.map_profile_fragment.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapProfileFragmentBinding
@@ -19,8 +16,8 @@ import q.tjw.cov19_eg.map.core.data.CaseModule
 import q.tjw.cov19_eg.map.core.data.mToCaseModule
 import q.tjw.cov19_eg.map.core.extentions.Navigation
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
-import q.tjw.cov19_eg.map.core.extentions.myToast
 import q.tjw.cov19_eg.map.core.extentions.showToast
+import q.tjw.cov19_eg.model.User
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.ui.MainMapActivity
 import q.tjw.cov19_eg.model.mToUserModule
