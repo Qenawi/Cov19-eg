@@ -1,10 +1,13 @@
 package q.tjw.cov19_eg.map.ui.status
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.firestore.FirebaseFirestore
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.MapWorldStatusBinding
@@ -13,6 +16,8 @@ import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.data.WorldLifeStateModule
 import q.tjw.cov19_eg.map.core.data.mToWorldLifeStateModule
 import q.tjw.cov19_eg.map.core.extentions.Navigation
+import q.tjw.cov19_eg.map.data_layer.model.world_cases.CasesResponse
+import q.tjw.cov19_eg.map.data_layer.reprository.ConnectionApi
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.ui.MainMapActivity
 import javax.inject.Inject
@@ -23,16 +28,32 @@ class FragmentWorldStatus : BaseFragment() {
     @Inject
     lateinit var fireStore: FirebaseFirestore
 
+    @Inject
+    lateinit var connectionApi: ConnectionApi
+
+    var worldStatusVM: WorldStatusVM? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         CO19Application.appComponent.inject(this)
+
+        initialization()
+    }
+
+    private fun initialization() {
+        worldStatusVM = activity?.let { ViewModelProviders.of(it).get(WorldStatusVM::class.java) }
+        worldStatusVM!!.init(connectionApi)
+
+        worldStatusVM?.getCases()
+        worldStatusVM?.getCasesResponse()?.observe(this,
+            Observer<CasesResponse> { casesResponse: CasesResponse? ->
+                Log.v("a7a", casesResponse.toString())
+            })
+
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         fetchState()
         (binding as MapWorldStatusBinding).include.egyptModule = egyptState
@@ -61,11 +82,12 @@ class FragmentWorldStatus : BaseFragment() {
     private fun fetchState() {
         fireStore.collection("live-state").get().addOnSuccessListener { query ->
             for (doc in query) {
-                if (doc.id == "eg-state")
+                if (doc.id == "eg-state") {
                     egyptState.postValue(doc.data.mToWorldLifeStateModule())
-                else worldState.postValue(doc.data.mToWorldLifeStateModule())
+                } else {
+                    worldState.postValue(doc.data.mToWorldLifeStateModule())
+                }
             }
         }
     }
-
 }

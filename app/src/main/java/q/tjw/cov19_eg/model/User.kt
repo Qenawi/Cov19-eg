@@ -1,6 +1,5 @@
 package q.tjw.cov19_eg.model
 
-import q.tjw.cov19_eg.map.core.data.WorldLifeStateModule
 import q.tjw.cov19_eg.map.core.data.emptyS
 import q.tjw.cov19_eg.map.core.extentions.mMapToJsonElement
 import q.tjw.cov19_eg.map.core.extentions.mMapToObject

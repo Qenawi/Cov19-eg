@@ -19,6 +19,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
         android:padding="0dp">
 
         <carbon.widget.TextView
@@ -81,14 +82,14 @@
         <carbon.widget.TextView
             android:id="@+id/textView3"
             style="@style/TextViewStyle_mid"
-            app:decimal_format="@{true}"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_red_300"
             android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
@@ -121,14 +122,14 @@
         <carbon.widget.TextView
             android:id="@+id/textView5"
             style="@style/TextViewStyle_mid"
-            app:decimal_format="@{true}"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_red_300"
             android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
@@ -174,13 +175,13 @@
         <carbon.widget.TextView
             android:id="@+id/textView8"
             style="@style/TextViewStyle_mid"
-            app:decimal_format="@{true}"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_orange_300"
             android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
@@ -192,14 +193,14 @@
         <carbon.widget.TextView
             android:id="@+id/textView9"
             style="@style/TextViewStyle_mid"
-            app:decimal_format="@{true}"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_orange_300"
             android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -211,19 +212,20 @@
         <carbon.widget.TextView
             android:id="@+id/textView10"
             style="@style/TextViewStyle_mid"
-            app:decimal_format="@{true}"
-
             android:layout_width="wrap_content"
+
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/carbon_orange_300"
             android:textSize="16sp"
+            app:decimal_format="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
             app:safe_text="@{egyptModule.death}"
             tools:text="@tools:sample/date/hhmm" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
