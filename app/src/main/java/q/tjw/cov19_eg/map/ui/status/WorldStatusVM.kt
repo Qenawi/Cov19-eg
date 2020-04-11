@@ -7,10 +7,10 @@ import q.tjw.cov19_eg.map.data_layer.model.world_cases.CasesResponse
 import q.tjw.cov19_eg.map.data_layer.reprository.ConnectionApi
 
 class WorldStatusVM: ViewModel() {
-    private var casesResponse: LiveData<CasesResponse>? = null
+    private var casesResponse: LiveData<ArrayList<CasesResponse>>? = null
     private var connectionApi: ConnectionApi? = null
 
-    fun getCasesResponse(): LiveData<CasesResponse> {
+    fun getCasesResponse(): LiveData<ArrayList<CasesResponse>> {
         if (casesResponse == null) {
             casesResponse = MutableLiveData()
         }

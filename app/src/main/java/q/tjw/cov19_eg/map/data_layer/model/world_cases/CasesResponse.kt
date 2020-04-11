@@ -1,7 +1,7 @@
 package q.tjw.cov19_eg.map.data_layer.model.world_cases
 
-data class CasesResponse(val countryInfo: List<CountryInfo>?,
-                         val country: String?,
+data class CasesResponse(val countryInfo: CountryInfo?,
+                         var country: String?,
                          val cases: String?,
                          val critical: String?,
                          val active: String?,

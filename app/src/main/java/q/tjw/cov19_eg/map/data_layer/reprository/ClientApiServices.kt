@@ -8,6 +8,6 @@ import retrofit2.http.Url
 interface ClientApiServices {
 
     @GET
-    fun getCases(@Url url: String?): Call<CasesResponse>
+    fun getCases(@Url url: String?): Call<ArrayList<CasesResponse>>
 
 }
