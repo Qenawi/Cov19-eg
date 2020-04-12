@@ -17,12 +17,13 @@ import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.map.core.data.CaseModule
 
 
-fun Activity?.setUpMap(m: GoogleMap?) = this?.run {
-    m?.let { p0 ->
-        p0.setMinZoomPreference(2f)
-        p0.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_dark_style))
-        p0.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(30.044281, 31.340002),7f))
-    }
+fun Activity?.setUpMap(m:GoogleMap?)=this?.run {
+ m?.let {p0->
+      p0.setMinZoomPreference(4f)
+      p0.setMaxZoomPreference(15f)
+      p0.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_dark_style))
+     p0.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng( 26.820553, 30.802498), 6f))
+ }
 }
 
 fun GoogleMap?.mMapAddMarkers(data: ArrayList<CaseModule>) {

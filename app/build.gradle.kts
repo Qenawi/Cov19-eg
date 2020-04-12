@@ -61,7 +61,13 @@ dependencies {
     api(Libraries.carbon)
     implementation(Libraries.Google.material)
     implementation(Libraries.Libs.slidingRootNav)
+
    // implementation(Libraries.Kotlin.workManger)
     implementation(Libraries.Kotlin.reflect)
+
+    implementation(Libraries.Retrofit.retrofit)
+    implementation(Libraries.Retrofit.gsonConverter)
+    implementation(Libraries.Retrofit.retrofit_rxjava_adapter)
+
 }
 
