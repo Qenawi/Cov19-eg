@@ -20,4 +20,7 @@
         <item name="carbon_fontPath">@string/font_mid</item>
     </style>
     <style name="TextViewStyle_normal" parent="TextViewStyle"/>
+    <declare-styleable name="app_attributes">
+        <attr name="label_title" format="reference" />
+    </declare-styleable>
 </resources>

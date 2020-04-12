@@ -38,4 +38,5 @@ interface AppComponent {
     fun inject(profileFragment: ProfileFragment)
     fun inject(checkActivity: CheckActivity)
     fun inject(splashActivity: SplashActivity)
+  // fun inject(dailyWorker: DailyWorker)
 }

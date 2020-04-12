@@ -15,26 +15,30 @@
         android:layout_height="match_parent"
         android:background="@drawable/black_gradient">
 
-        <carbon.widget.InputLayout
+        <LinearLayout
             android:id="@+id/v_case_address_input_layout"
             android:layout_width="0dp"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            app:carbon_labelFontPath="@string/font_bold"
-            app:carbon_label="@string/case_age"
-            app:carbon_labelStyle="persistent"
-            app:carbon_labelTextSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:lock_view="@{viewModel.MLoading}">
-
+            <carbon.widget.TextView
+                style="@style/TextViewStyle_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/case_age"
+                android:textColor="@color/carbon_green_300"
+                android:textSize="20sp" />
             <carbon.widget.EditText
                 android:id="@+id/v_case_address"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/carbon_white"
                 android:inputType="number"
@@ -43,18 +47,19 @@
                 android:text="@={viewModel.caseAddress}"
                 android:textColor="@color/carbon_black"
                 app:carbon_backgroundTint="@null"
-                app:carbon_cornerRadius="5dp"
+                app:carbon_cornerRadius="10dp"
                 app:carbon_required="true"
                 app:carbon_tint="@null" />
-        </carbon.widget.InputLayout>
+        </LinearLayout>
 
-        <carbon.widget.InputLayout
+        <LinearLayout
             android:id="@+id/v_case_name_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
+            android:orientation="vertical"
             app:carbon_label="@string/case_name"
             app:carbon_labelFontPath="@string/font_bold"
             app:carbon_labelStyle="persistent"
@@ -65,49 +70,76 @@
             app:layout_constraintTop_toBottomOf="@id/v_case_address_input_layout"
             app:layout_constraintVertical_bias="0.0"
             app:lock_view="@{viewModel.MLoading}">
-
+            <carbon.widget.TextView
+                style="@style/TextViewStyle_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/case_name"
+                android:textColor="@color/carbon_green_300"
+                android:textSize="20sp" />
             <carbon.widget.EditText
                 android:id="@+id/v_case_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/carbon_white"
                 android:padding="5dp"
                 android:maxLines="1"
+                android:inputType="textPersonName"
                 android:text="@={viewModel.caseName}"
                 android:textColor="@color/carbon_black"
                 app:carbon_backgroundTint="@null"
-                app:carbon_cornerRadius="5dp"
+                app:carbon_cornerRadius="10dp"
                 app:carbon_minCharacters="10"
                 app:carbon_required="true"
                 app:carbon_tint="@null" />
-        </carbon.widget.InputLayout>
+        </LinearLayout>
 
-        <carbon.widget.DropDown
+        <LinearLayout
             android:id="@+id/dropDown"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:carbon_tint="@null"
-            app:carbon_backgroundTint="@null"
-            android:background="@color/carbon_white"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
-            android:textColor="@color/carbon_black"
-            app:carbon_cornerRadius="7dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
+     app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0">
+            <carbon.widget.TextView
+                style="@style/TextViewStyle_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/invalid_province"
+                android:textColor="@color/carbon_green_300"
+                android:textSize="20sp" />
+
+            <carbon.widget.DropDown
+                android:id="@+id/province_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/carbon_white"
+                android:textColor="@color/carbon_black"
+                app:carbon_backgroundTint="@null"
+                app:carbon_cornerRadius="10dp"
+                app:carbon_fontPath="@string/font_mid"
+                app:carbon_tint="@null" />
+
+        </LinearLayout>
 
         <carbon.widget.Button
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="@color/carbon_white"
             android:layout_marginStart="50dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="50dp"
@@ -149,89 +181,96 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="15dp"
+            android:alpha="0.6"
             android:text="@string/case_location"
             android:textColor="@color/carbon_white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:chipBackgroundColor="@color/carbon_black_54"
             app:chip_location_activation="@{viewModel.MCaseLocation}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/chip4"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/l_female"
+            app:layout_constraintVertical_bias="0.19999999" />
 
         <carbon.widget.CheckBox
             android:id="@+id/checkBox"
+            app:carbon_fontPath="@string/font_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:checked="false"
             android:padding="0dp"
             android:text="@string/add_case_check_box_msg"
             android:textColor="@color/carbon_white"
-            android:textSize="15sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dropDown"
             app:layout_constraintVertical_bias="0.0"
             app:lock_view="@{viewModel.MLoading}" />
 
         <carbon.widget.CheckBox
-            android:padding="0dp"
             android:id="@+id/l_male"
+            app:carbon_fontPath="@string/font_bold"
+
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/male"
+            android:layout_marginEnd="30dp"
             android:checked="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            android:padding="0dp"
+            android:text="@string/male"
+            app:layout_constraintBottom_toBottomOf="@+id/l_female"
+            app:layout_constraintEnd_toStartOf="@+id/l_female"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/l_female"
             app:layout_constraintVertical_bias="0.0" />
 
 
         <carbon.widget.CheckBox
+            android:id="@+id/l_female"
+            app:carbon_fontPath="@string/font_bold"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="30dp"
-            android:padding="0dp"
             android:checked="false"
-            android:id="@+id/l_female"
+            android:padding="0dp"
             android:text="@string/female"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/l_male"
-            app:layout_constraintTop_toBottomOf="@id/checkBox"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip4"
-            android:textColor="@color/carbon_white"
+            android:alpha="0.6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:textSize="14sp"
+            android:layout_marginEnd="30dp"
             android:text="@string/add_case_date"
+            android:textColor="@color/carbon_white"
+            android:textSize="12sp"
             app:chipBackgroundColor="@color/carbon_black_54"
             app:chip_date_activation="@{viewModel.MCaseDate}"
             app:layout_constraintBottom_toBottomOf="@+id/chip2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/chip2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chip2" />
 
         <ProgressBar
@@ -240,10 +279,10 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintHorizontal_bias="0.18"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chip2"
-            app:layout_constraintVertical_bias="0.57"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.43"
             app:progress_view="@{viewModel.MLoading}" />
 
         <carbon.widget.TextView
@@ -253,32 +292,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="12dp"
-            android:textSize="15sp"
-            android:textColor="@color/carbon_green_400"
+            android:layout_marginEnd="30dp"
             android:text="@string/case_gender"
+            android:textColor="@color/carbon_green_400"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkBox"
             app:layout_constraintVertical_bias="0.0" />
 
-        <carbon.widget.TextView
-            style="@style/TextViewStyle_bold"
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/area"
-            android:textColor="@color/carbon_green_400"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_case_name_input_layout"
-            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -39,8 +39,8 @@ class FragmentAddCase : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (binding as MapAddCaseBinding).viewModel = viewModel
-        (dropDown as DropDown<String>).setItems(RegisterActivity.province)
-        (dropDown as DropDown<String>).setOnItemSelectedListener { item: String?, position: Int -> viewModel.selectedArea.postValue(item?:"") }
+        (province_spinner as DropDown<String>).setItems(RegisterActivity.province)
+        (province_spinner as DropDown<String>).setOnItemSelectedListener { item: String?, position: Int -> viewModel.selectedArea.postValue(item?:"") }
         l_male.setOnCheckedChangeListener { buttonView, isChecked -> l_female.setChecked(!isChecked) }
         l_female.setOnCheckedChangeListener { buttonView, isChecked ->l_male.setChecked(!isChecked)  }
         checkBox.setOnCheckedChangeListener { buttonView, isChecked -> viewModel.caseConfirmed.postValue(isChecked) }

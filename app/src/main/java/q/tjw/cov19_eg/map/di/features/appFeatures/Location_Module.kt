@@ -1,5 +1,4 @@
 package q.tjw.cov19_eg.map.di.features.appFeatures
-
 import android.app.Application
 import android.content.Context
 import android.location.Geocoder
@@ -11,7 +10,6 @@ import dagger.Module
 import dagger.Provides
 import java.util.*
 import javax.inject.Singleton
-
 @Module
 class Location_Module {
 

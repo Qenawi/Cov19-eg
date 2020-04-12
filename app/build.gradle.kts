@@ -27,9 +27,16 @@ android {
         sourceCompatibility=JavaVersion.VERSION_1_8
         targetCompatibility=JavaVersion.VERSION_1_8
     }
+    kotlinOptions{
+        jvmTarget =JavaVersion.VERSION_1_8.toString()
+    }
 }
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(Libraries.Room.common)
+    implementation(Libraries.Room.runtime)
+    implementation(Libraries.Room.ktx)
+    kapt(Libraries.Room.compiler)
     implementation(Libraries.Libs.kotlin)
     implementation(Libraries.Libs.appcompat)
     implementation(Libraries.constraintlayout)
@@ -54,5 +61,7 @@ dependencies {
     api(Libraries.carbon)
     implementation(Libraries.Google.material)
     implementation(Libraries.Libs.slidingRootNav)
+   // implementation(Libraries.Kotlin.workManger)
+    implementation(Libraries.Kotlin.reflect)
 }
 

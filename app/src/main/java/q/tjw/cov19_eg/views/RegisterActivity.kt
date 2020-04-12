@@ -3,6 +3,7 @@ package q.tjw.cov19_eg.views
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.Secure
 import android.util.Log
@@ -15,9 +16,9 @@ import carbon.widget.DropDown
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.map_add_case.*
 import q.tjw.cov19_eg.R
 import q.tjw.cov19_eg.databinding.ActivityRegisterBinding
+import q.tjw.cov19_eg.map.core.data.Navigation
 import q.tjw.cov19_eg.map.core.extentions.getDeviceUniqueFootPrint
 import q.tjw.cov19_eg.map.core.extentions.mVisible
 import q.tjw.cov19_eg.map.core.extentions.observe
@@ -28,10 +29,11 @@ import q.tjw.cov19_eg.utilities.Validation
 
 class RegisterActivity : AppCompatActivity() {
 companion object{
-    val province = arrayListOf<String>("المحافظة", "القاهرة", "الجيزة", "القليوبية", "الإسكندرية", "البحيرة", "مطروح", "الدقهلية", "كفر الشيخ", "الغربية",
+    val province = arrayListOf<String>( "القاهرة", "الجيزة", "القليوبية", "الإسكندرية", "البحيرة", "مطروح", "الدقهلية", "كفر الشيخ", "الغربية",
         "المنوفية", "دمياط", "بورسعيد", "الإسماعيلية", "السويس", "الشرقية", "شمال سيناء", "جنوب سيناء", "بني سويف", "المنيا", "الفيوم", "أسيوط",
         "الوادي الجديد", "سوهاج", "قنا", "الأقصر", "أسوان", "البحر الأحمر")
-    val gender = listOf("النوع", "ذكر", "أنثى")
+    val gender = listOf( "ذكر", "أنثى")
+    var open_next: Navigation?=Navigation.Home
 }
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var sharedPreference: SharedPreference
@@ -87,11 +89,12 @@ companion object{
                 binding.phone.text.toString(),(province_spinner as DropDown<String>).selectedItem,
                 binding.age.text.toString(), (gender_spinner as DropDown<String>).selectedItem)
 
-            db.collection("users").document(getDeviceUniqueFootPrint()).set(user)
+             db.collection("users").document(getDeviceUniqueFootPrint()).set(user)
                 .addOnSuccessListener {
                     Toast.makeText(this, R.string.register_success, Toast.LENGTH_SHORT).show()
                     sharedPreference.setIsLogin(true)
                     dialog?.dismiss()
+                    setResult(Activity.RESULT_OK, Intent())
                     finish()
                 }
                 .addOnFailureListener { e ->
@@ -99,10 +102,6 @@ companion object{
                     dialog?.dismiss()
                 }
         }
-        else{
-            Toast.makeText(this, valid, Toast.LENGTH_SHORT).show()
-        }
+        else{Toast.makeText(this, valid, Toast.LENGTH_SHORT).show()}
     }
-
-
 }

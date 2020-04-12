@@ -1,5 +1,6 @@
 package q.tjw.cov19_eg.map.ui.map_activity
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import q.tjw.cov19_eg.map.core.base.BaseFragment
 import q.tjw.cov19_eg.map.core.extentions.*
 import q.tjw.cov19_eg.map.di.app.CO19Application
 import q.tjw.cov19_eg.map.ui.MainMapActivity
+import q.tjw.cov19_eg.map.ui.map_activity.MapFragment.Companion.ActivityResult
 import q.tjw.cov19_eg.map.ui.map_reportcase.ActivityAddCase
 import q.tjw.cov19_eg.utilities.SharedPreference
 import q.tjw.cov19_eg.views.CheckActivity
@@ -24,7 +26,10 @@ import q.tjw.cov19_eg.views.RegisterActivity
 import javax.inject.Inject
 
 class MapFragment : BaseFragment(), OnMapReadyCallback {
-    companion object { fun newInstance() = MapFragment() }
+    companion object { fun newInstance() = MapFragment()
+    const val ActivityResult=101
+
+    }
     private lateinit var intent: Intent
     private lateinit var map: GoogleMap
     private lateinit var viewModel: MapViewModel
@@ -44,7 +49,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         }
 
     }
-    override fun onMapReady(p0: GoogleMap?) {
+    override fun onMapReady(p0: GoogleMap?)
+    {
         p0?.let {
             activity?.setUpMap(p0)
             map = p0
@@ -69,23 +75,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 val sharedPreference = SharedPreference(CO19Application.context!!)
                 if(sharedPreference.getIsLogin()==true)
                 addCase()
-                else
-                {
-                    intent = Intent(activity, RegisterActivity::class.java)
-                    startActivity(intent)
-                }
+                else activity.launchRegister(q.tjw.cov19_eg.map.core.data.Navigation.AddCase)
             }
         }
         l_updateProfile.setOnClickListener{
             val sharedPreference = SharedPreference(CO19Application.context!!)
             if (sharedPreference.getIsLogin()!!) {
                 startActivity(Intent(activity, CheckActivity::class.java))
-            }
-            else{
-                intent = Intent(activity, RegisterActivity::class.java)
-                startActivity(intent)
-
-            }
+             } else activity.launchRegister(q.tjw.cov19_eg.map.core.data.Navigation.CheckActivity)
         }
     }
     private fun addCase() = mLaunchActivity<ActivityAddCase>(contex = context)
@@ -95,5 +92,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         (activity as BaseActivity<*>).toolbarTitle.postValue(getString(R.string.l_worldMap))
     }
 }
-
+fun Activity?.launchRegister(enum:q.tjw.cov19_eg.map.core.data.Navigation){
+    RegisterActivity.open_next=enum
+    mLaunchActivityForResult<RegisterActivity>(this,ActivityResult)}
 

@@ -51,6 +51,7 @@ object Libraries {
         const val reflect = "org.jetbrains.kotlin:kotlin-reflect:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
+        const val workManger="androidx.work:work-runtime-ktx:2.3.4"
     }
 
     object Coroutines {
@@ -105,7 +106,6 @@ object Libraries {
     const val preference = "androidx.preference:preference:1.1.0"
 
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
-
     const val coreKtx = "androidx.core:core-ktx:1.2.0-rc01"
 
     object Lifecycle {

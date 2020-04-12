@@ -162,8 +162,8 @@ annotation class ViewValidation
 fun <T:Any?>T?.validateInput(inputType: InputType):Boolean
 =this?.let {input->
  return@let when(inputType){
-    Name ->  (input as String).length>=10
-    Address -> (input as String).length>=20
+    Name ->  (input as String).length>=3
+    Address -> (input as String).length>=5
     Email -> false
     Password -> false
     LocationString -> (input as String).length>=10
@@ -232,7 +232,7 @@ this.text=SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH).format(date.toLong())
 @BindingAdapter("go_back", "title", requireAll = false)
 fun View.handle(data: MutableLiveData<Boolean>?, name: MutableLiveData<String>?) {
     when (name?.value) {
-        getString_(R.string.l_worldMap) -> this.mVisible(false)
+        getString_(R.string.l_worldMap) ,getString_(R.string.l_UserProfile),getString_(R.string.l_worldStatus)-> this.mVisible(false)
         else -> this.mVisible(true)
     }
     this.setOnClickListener { data?.postValue(true) }
